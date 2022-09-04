@@ -14,8 +14,8 @@ Initial.args = {
   id: 0,
   title: '마일스톤 1주차',
   description: '마일스톤 1주차에 대한 설명',
-  closeCount: 3,
-  openCount: 7,
+  openIssueCount: 3,
+  closedIssueCount: 7,
   dueDate: '2022-08-26',
   closed: false,
 };
@@ -31,8 +31,8 @@ OnlyTitle.args = {
   id: 1,
   title: '타이틀만 있는 마일스톤',
   description: null,
-  closeCount: 4,
-  openCount: 18,
+  openIssueCount: 18,
+  closedIssueCount: 5,
   dueDate: null,
   closed: false,
 };

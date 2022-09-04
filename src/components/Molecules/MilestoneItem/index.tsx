@@ -19,18 +19,14 @@ export interface MilestoneItemTypes {
   description: string | null;
   dueDate: string | null;
   closed: boolean;
+  openIssueCount: number;
+  closedIssueCount: number;
 }
 
-// 아직 api에 해당 정보가 없어서 타입을 따로 분리해둠
-interface MilestoneItemCountTypes {
-  openCount?: number;
-  closeCount?: number;
-}
-
-const MilestoneItem = ({ openCount = 5, closeCount = 5, ...props }: MilestoneItemTypes & MilestoneItemCountTypes) => {
+const MilestoneItem = (props: MilestoneItemTypes) => {
   const { patchMilestoneStateMutate } = useFetchMilestone();
 
-  const { id, title, description, dueDate, closed } = props;
+  const { id, title, description, dueDate, openIssueCount, closedIssueCount, closed } = props;
   const [isOpenModifyEditer, setIsOpenModifyEditer] = useState(false);
   const setIsOpenModalState = useSetRecoilState(ModalState);
   const setClickMilestoneState = useSetRecoilState(ClickMilestoneState);
@@ -64,7 +60,7 @@ const MilestoneItem = ({ openCount = 5, closeCount = 5, ...props }: MilestoneIte
               }}
             />
           </S.MilestoneItemButtons>
-          <PrograssBar open={openCount} close={closeCount} showState />
+          <PrograssBar open={openIssueCount} close={closedIssueCount} showState />
         </div>
       </S.MilestoneItem>
       {isOpenModifyEditer && (
