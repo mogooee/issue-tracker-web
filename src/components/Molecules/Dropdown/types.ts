@@ -3,7 +3,7 @@ import { MilestoneItemTypes } from '../MilestoneItem';
 
 // Indicator Types
 export interface DropdownIndicatorTypes {
-  indicatorStyle: 'STANDARD' | 'FILTERBAR';
+  indicatorStyle: 'STANDARD' | 'FILTERBAR' | 'SIDEBAR';
   indicatorLabel: string;
   isActive?: boolean;
 }

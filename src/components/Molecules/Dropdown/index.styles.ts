@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const Dropdown = styled.details<{ dropdownStyle: 'STANDARD' | 'FILTERBAR' }>`
+export const Dropdown = styled.details<{ dropdownStyle: 'STANDARD' | 'FILTERBAR' | 'SIDEBAR' }>`
   position: relative;
   width: fit-content;
 

@@ -20,3 +20,10 @@ Filterbar.args = {
   indicatorLabel: '필터',
   isActive: false,
 };
+
+export const Sidebar = Template.bind({});
+Sidebar.args = {
+  indicatorStyle: 'SIDEBAR',
+  indicatorLabel: '사이드 바',
+  isActive: false,
+};
