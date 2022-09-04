@@ -1,4 +1,6 @@
-import { IssueTypes, LabelTypes, UserTypes, DropdownTypes } from '@/components/Molecules/Dropdown/types';
+import { IssueTypes, UserTypes, DropdownTypes } from '@/components/Molecules/Dropdown/types';
+import { LabelTypes } from '@/stores/labelList';
+import { MilestoneItemTypes } from '@/components/Molecules/MilestoneItem';
 
 export const UNUSED_OPTIONS = {
   ASSIGNEE: {
@@ -47,44 +49,55 @@ export const LABEL_LIST: LabelTypes[] = [
   {
     id: 0,
     title: 'feature',
-    backgroundColor: '#007AFF',
+    backgroundColorCode: '#007AFF',
+    description: '',
+    textColor: 'BLACK',
   },
   {
     id: 1,
     title: 'Fix',
-    backgroundColor: '#FFD1CF',
+    backgroundColorCode: '#FFD1CF',
+    description: '',
+    textColor: 'BLACK',
   },
   {
     id: 2,
     title: 'refactor',
-    backgroundColor: '#34C759',
+    backgroundColorCode: '#34C759',
+    description: '',
+    textColor: 'BLACK',
   },
 ];
 
 export const USER_LIST: UserTypes[] = [
   {
     id: 0,
-    loginId: '도비',
+    email: 'dobby@gmail.com',
+    nickname: '도비',
     profileImageUrl: 'https://avatars.githubusercontent.com/u/85747667?v=4',
   },
   {
     id: 1,
-    loginId: '도톨',
+    email: 'dotori@gmail.com',
+    nickname: '도토리',
     profileImageUrl: 'https://avatars.githubusercontent.com/u/92701121?v=4',
   },
   {
     id: 2,
-    loginId: '후',
+    email: 'whoo@gmail.com',
+    nickname: '후',
     profileImageUrl: 'https://avatars.githubusercontent.com/u/68011320?v=4',
   },
   {
     id: 3,
-    loginId: '아더',
+    email: 'ader@gmail.com',
+    nickname: '아더',
     profileImageUrl: 'https://avatars.githubusercontent.com/u/29879110?v=4',
   },
   {
     id: 4,
-    loginId: '벡',
+    email: 'beck@gmail.com',
+    nickname: '벡',
     profileImageUrl: 'https://avatars.githubusercontent.com/u/65931336?v=4',
   },
 ];

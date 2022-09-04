@@ -1,6 +1,8 @@
 import * as S from '@/components/Molecules/Dropdown/Panel/index.styles';
 import PanelPreviewLabel from '@/components/Molecules/Dropdown/Panel/Label';
-import { DropdownPanelsTypes, IssueTypes, LabelTypes, UserTypes } from '@/components/Molecules/Dropdown/types';
+import { DropdownPanelsTypes, IssueTypes, UserTypes } from '@/components/Molecules/Dropdown/types';
+import { LabelTypes } from '@/stores/labelList';
+import { MilestoneItemTypes } from '../../MilestoneItem';
 
 const DropdownPanel = ({ ...props }: DropdownPanelsTypes) => {
   const { panelTitle, panelType, panelList, unusedOption } = props;
@@ -19,19 +21,20 @@ const DropdownPanel = ({ ...props }: DropdownPanelsTypes) => {
         )}
         {panelList.map(({ ...listProps }) => {
           const { id: issueId, title: issueTitle, dataId } = listProps as IssueTypes;
-          const { id: labelId, title: labelTitle, backgroundColor } = listProps as LabelTypes;
-          const { id: userImgId, loginId, profileImageUrl } = listProps as UserTypes;
+          const { id: labelId, title: labelTitle, backgroundColorCode } = listProps as LabelTypes;
+          const { id: userImgId, nickname, profileImageUrl } = listProps as UserTypes;
+          const { id: milestoneId, title: milestoneTitle } = listProps as MilestoneItemTypes;
 
-          const ITEM_KEY = `${panelTitle}-${issueId || labelId || userImgId}`;
-          const INPUT_NAME = issueTitle || labelTitle || loginId;
-          const DATASET_ID = dataId || labelTitle || loginId;
+          const ITEM_KEY = `${panelTitle}-${issueId || labelId || milestoneId || userImgId}`;
+          const INPUT_NAME = issueTitle || labelTitle || milestoneTitle || nickname;
+          const DATASET_ID = dataId || labelTitle || milestoneTitle || nickname;
 
           return (
             <S.PanelItem key={ITEM_KEY}>
               <input id={ITEM_KEY} type={panelType} name={panelTitle} data-id={DATASET_ID} />
               <label htmlFor={ITEM_KEY}>
-                {backgroundColor && <PanelPreviewLabel backgroundColor={backgroundColor} />}
-                {profileImageUrl && <PanelPreviewLabel profileImageUrl={profileImageUrl} loginId={loginId} />}
+                {backgroundColorCode && <PanelPreviewLabel backgroundColor={backgroundColorCode} />}
+                {profileImageUrl && <PanelPreviewLabel profileImageUrl={profileImageUrl} loginId={nickname} />}
                 <span>{INPUT_NAME}</span>
               </label>
             </S.PanelItem>
