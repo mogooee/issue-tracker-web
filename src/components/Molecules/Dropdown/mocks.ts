@@ -102,6 +102,37 @@ export const USER_LIST: UserTypes[] = [
   },
 ];
 
+export const MILESTONE_LIST: MilestoneItemTypes[] = [
+  {
+    id: 0,
+    title: '마일스톤 1',
+    description: null,
+    dueDate: null,
+    closed: false,
+    openIssueCount: 3,
+    closedIssueCount: 7,
+  },
+
+  {
+    id: 1,
+    title: '마일스톤 2',
+    description: '닫힌 마일스톤에 대한 설명',
+    dueDate: null,
+    closed: true,
+    openIssueCount: 16,
+    closedIssueCount: 13,
+  },
+  {
+    id: 2,
+    title: '마일스톤 3',
+    description: '열린 마일스톤에 대한 설명',
+    dueDate: '2022-08-28',
+    closed: false,
+    openIssueCount: 5,
+    closedIssueCount: 5,
+  },
+];
+
 const OPEN_CLOSE_STATE_LIST: IssueTypes[] = [
   {
     id: 0,
@@ -138,7 +169,7 @@ export const MILESTONE_DROPDOWN_ARGS: DropdownTypes = {
   indicatorStyle: 'STANDARD',
   panelTitle: '마일스톤 필터',
   panelType: 'checkbox',
-  panelList: LABEL_LIST,
+  panelList: MILESTONE_LIST,
   unusedOption: UNUSED_OPTIONS.MILESTONE,
 };
 
