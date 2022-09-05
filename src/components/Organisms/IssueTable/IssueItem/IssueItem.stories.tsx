@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import IssueItem from '@/components/Molecules/IssueItem';
+import IssueItem from '@/components/Organisms/IssueTable/IssueItem';
 import { COLORS } from '@/styles/theme';
 
 export default {

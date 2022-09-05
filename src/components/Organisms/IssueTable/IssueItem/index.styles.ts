@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const StyledIssueItem = styled.div`
   ${({ theme }) => theme.MIXIN.FLEX({ align: 'center', justify: 'flex-start' })};
   background: ${({ theme }) => theme.COLORS.OFF_WHITE};
-  padding: 24px 32px;
 
   .checkbox {
     margin-top: -35px;
@@ -55,11 +54,10 @@ export const Assignee = styled.div`
   }
 `;
 
-export const Template = styled.div<{ templateColumns: string }>`
+export const Template = styled.div`
   display: grid;
   align-items: center;
-  padding: 18px 32px;
-  grid-template-columns: ${({ templateColumns }) => templateColumns};
+  grid-template-columns: 60px auto 100px;
 
   .checkbox {
     margin-top: -35px;
