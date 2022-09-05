@@ -2,7 +2,7 @@ import { LabelTypes } from '@/components/Atoms/Label';
 import styled, { css } from 'styled-components';
 import { darken, lighten } from 'polished';
 
-type StyledLabelTypes = Pick<LabelTypes, 'labelStyle' | 'backgroundColor' | 'textColor'>;
+type StyledLabelTypes = Pick<LabelTypes, 'labelStyle' | 'backgroundColor' | 'textColor' | 'lineColor'>;
 
 export const Label = styled.div<StyledLabelTypes>`
   ${({ theme }) => theme.MIXIN.FLEX({ align: 'center', justify: 'center' })};
@@ -10,6 +10,11 @@ export const Label = styled.div<StyledLabelTypes>`
   width: fit-content;
   padding: 4px 16px;
   border-radius: 30px;
+  border: 1px solid ${({ lineColor }) => lineColor};
+
+  svg {
+    margin-right: 6px;
+  }
 
   ${({ labelStyle, backgroundColor, textColor }) => {
     if (labelStyle === 'DARK') {
@@ -26,9 +31,5 @@ export const Label = styled.div<StyledLabelTypes>`
         color: ${textColor === 'WHITE' ? '#FFF' : '#000'};
       `;
     }
-  }}
-
-  svg {
-    margin-right: 6px;
-  }
+  }};
 `;
