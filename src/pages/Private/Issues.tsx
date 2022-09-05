@@ -14,6 +14,7 @@ import NavLink from '@/components/Molecules/NavLink';
 import Header from '@/components/Organisms/Header';
 import IssueTable from '@/components/Organisms/IssueTable';
 import { issueListData } from '@/components/Organisms/IssueTable/mocks';
+import { COLORS } from '@/styles/theme';
 
 const DivContainer = styled.div`
   ${({ theme }) => theme.MIXIN.FLEX({ align: 'center', justify: 'space-between' })};
@@ -40,12 +41,17 @@ const Issues = () => {
         <SubNav>
           <NavLink
             navData={[
-              { icon: <Icon icon="Tag" stroke="#14142B" />, title: '레이블 (3)', link: '/label' },
-              { icon: <Icon icon="Milestone" fill="#14142B" />, title: '마일스톤 (2)', link: '/milestone' },
+              { icon: <Icon icon="Tag" stroke={COLORS.TITLE_ACTIVE} />, title: '레이블 (3)', link: '/label' },
+              { icon: <Icon icon="Milestone" fill={COLORS.TITLE_ACTIVE} />, title: '마일스톤 (2)', link: '/milestone' },
             ]}
             navLinkStyle="LINE"
           />
-          <Button buttonStyle="STANDARD" label="이슈작성" size="SMALL" iconInfo={{ icon: 'Plus', stroke: '#FEFEFE' }} />
+          <Button
+            buttonStyle="STANDARD"
+            label="이슈작성"
+            size="SMALL"
+            iconInfo={{ icon: 'Plus', stroke: COLORS.OFF_WHITE }}
+          />
         </SubNav>
       </DivContainer>
       <IssueTable issueListData={issueListData} filterTabs={FILTER_TABS} />

@@ -1,4 +1,5 @@
 import { IssueTypes, LabelTypes, UserTypes, DropdownTypes } from '@/components/Molecules/Dropdown/types';
+import { COLORS } from '@/styles/theme';
 
 export const UNUSED_OPTIONS = {
   ASSIGNEE: {
@@ -47,17 +48,17 @@ export const LABEL_LIST: LabelTypes[] = [
   {
     id: 0,
     title: 'feature',
-    backgroundColor: '#007AFF',
+    backgroundColor: COLORS.PRIMARY.BLUE,
   },
   {
     id: 1,
     title: 'Fix',
-    backgroundColor: '#FFD1CF',
+    backgroundColor: COLORS.ERROR.LIGHT_RED,
   },
   {
     id: 2,
     title: 'refactor',
-    backgroundColor: '#34C759',
+    backgroundColor: COLORS.SUCCESS.GREEN,
   },
 ];
 

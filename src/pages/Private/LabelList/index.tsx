@@ -57,8 +57,8 @@ const LabelList = () => {
             buttonStyle="STANDARD"
             iconInfo={{
               icon: 'Plus',
-              fill: '#FEFEFE',
-              stroke: '#FEFEFE',
+              fill: COLORS.OFF_WHITE,
+              stroke: COLORS.OFF_WHITE,
             }}
             label="추가"
             size="SMALL"

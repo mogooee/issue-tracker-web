@@ -116,8 +116,8 @@ const AddLabelField = ({ type, onClickCancleButton, onClickCompleteButton }: Lab
           buttonStyle="STANDARD"
           iconInfo={{
             icon: type === 'EDIT' ? 'Edit' : 'Plus',
-            fill: type === 'EDIT' ? 'none' : '#FEFEFE',
-            stroke: '#FEFEFE',
+            fill: type === 'EDIT' ? 'none' : COLORS.OFF_WHITE,
+            stroke: COLORS.OFF_WHITE,
           }}
           label="완료"
           size="SMALL"
