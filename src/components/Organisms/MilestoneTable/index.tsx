@@ -68,8 +68,8 @@ const MilestoneTable = () => {
         header={<NavLink navData={MILESTONE_STATE_TAB(milestoneData!)} />}
         item={
           isOpenMilestone()
-            ? renderMilestones(milestoneData!.openedMilestones)
-            : renderMilestones(milestoneData!.closedMilestones)
+            ? [renderMilestones(milestoneData!.openedMilestones)]
+            : [renderMilestones(milestoneData!.closedMilestones)]
         }
       />
       {isOpenModalState && (

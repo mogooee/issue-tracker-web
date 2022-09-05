@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { StyledIssueItem } from '@/components/Molecules/IssueItem/index.styles';
+import { StyledIssueItem } from '@/components/Organisms/IssueTable/IssueItem/index.styles';
 
 export const MilestoneItem = styled(StyledIssueItem)`
   display: flex;

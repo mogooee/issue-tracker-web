@@ -4,7 +4,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 
 import CheckBox from '@/components/Atoms/CheckBox';
 import NavLink from '@/components/Molecules/NavLink';
-import IssueItem, { IssueInfoTypes } from '@/components/Molecules/IssueItem';
+import IssueItem, { IssueInfoTypes } from '@/components/Organisms/IssueTable/IssueItem';
 import Dropdown from '@/components/Molecules/Dropdown';
 import { CheckState, IssueTableCheckState } from '@/stores/checkBox';
 

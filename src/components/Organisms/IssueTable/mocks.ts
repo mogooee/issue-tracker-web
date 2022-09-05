@@ -1,4 +1,4 @@
-import { IssueInfoTypes } from '@/components/Molecules/IssueItem';
+import { IssueInfoTypes } from '@/components/Organisms/IssueTable/IssueItem';
 import { COLORS } from '@/styles/theme';
 
 const DEFAULT_COLORS = COLORS.PRIMARY.BLUE;
