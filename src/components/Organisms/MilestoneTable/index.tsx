@@ -57,7 +57,7 @@ const MilestoneTable = () => {
       return milestoneList.map((info) => <MilestoneItem key={info.id} {...info} />);
     }
 
-    return <EmptyMilestoneItem />;
+    return [<EmptyMilestoneItem />];
   };
 
   useEffect(() => {}, [searchParams]);
@@ -68,8 +68,8 @@ const MilestoneTable = () => {
         header={<NavLink navData={MILESTONE_STATE_TAB(milestoneData!)} />}
         item={
           isOpenMilestone()
-            ? [renderMilestones(milestoneData!.openedMilestones)]
-            : [renderMilestones(milestoneData!.closedMilestones)]
+            ? renderMilestones(milestoneData!.openedMilestones)
+            : renderMilestones(milestoneData!.closedMilestones)
         }
       />
       {isOpenModalState && (
