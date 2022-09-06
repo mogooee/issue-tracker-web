@@ -52,11 +52,7 @@ export const authHandlers = [
     };
 
     const response: RedirectAuthTypes = {
-      signUpFormData: {
-        resourceOwnerId: 'string',
-        email: 'hoo@gmail.com',
-        profileImage: 'string',
-      },
+      signUpFormData: null,
       signInMember: null,
       accessToken: {
         token: 'token',

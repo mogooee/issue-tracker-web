@@ -26,14 +26,14 @@ const [MAX_TITLE_LENTH, MAX_DESCRIPTION_LENGTH] = [30, 100];
 const DEBOUNCE_DELAY = 200;
 
 const AddLabelField = ({ type, onClickCancleButton, onClickCompleteButton }: LabelAddFormTypes) => {
+  const timerId = useRef(0);
   const { isTyping: IsTitleTyping, onChangeInput: onChangeTitleInput } = useInput();
   const { isTyping: IsDescriptionTyping, onChangeInput: onChangeDescriptionInput } = useInput();
-  const [labelState, setLabelState] = useRecoilState(LabelState);
 
-  const timerId = useRef(0);
+  const [labelState, setLabelState] = useRecoilState(LabelState);
+  const { title, backgroundColorCode, description, textColor } = labelState.label;
 
   const formTitle = type === 'ADD' ? '새로운 레이블 추가' : '레이블 편집';
-  const { title, backgroundColorCode, description, textColor } = labelState.label;
 
   const handleTitleTyping = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
@@ -60,7 +60,7 @@ const AddLabelField = ({ type, onClickCancleButton, onClickCompleteButton }: Lab
       <S.Title>{formTitle}</S.Title>
       <S.EditField>
         <Label
-          backgroundColor={`${backgroundColorCode || COLORS.INPUT_BACKGROUND}`}
+          backgroundColorCode={`${backgroundColorCode || COLORS.INPUT_BACKGROUND}`}
           textColor={textColor}
           title={title || '레이블'}
         />
