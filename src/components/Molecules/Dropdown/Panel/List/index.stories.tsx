@@ -1,9 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import DropdownPanel from '@/components/Molecules/Dropdown/Panel';
+import DropdownPanel from '@/components/Molecules/Dropdown/Panel/List';
 import { ISSUE_FILTER_LIST, LABEL_LIST, UNUSED_OPTIONS, USER_LIST } from '@/components/Molecules/Dropdown/mocks';
 
 export default {
-  title: 'Molecules/Dropdown/Panel',
+  title: 'Molecules/Dropdown/Panel/List',
   component: DropdownPanel,
 } as ComponentMeta<typeof DropdownPanel>;
 
