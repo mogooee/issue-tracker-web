@@ -1,8 +1,8 @@
-import { LabelTypes } from '@/components/Atoms/Label';
+import { LabelType } from '@/components/Atoms/Label';
 import styled, { css } from 'styled-components';
 import { darken, lighten } from 'polished';
 
-type StyledLabelTypes = Pick<LabelTypes, 'labelStyle' | 'backgroundColor' | 'textColor' | 'lineColor'>;
+type StyledLabelTypes = Pick<LabelType, 'labelStyle' | 'backgroundColorCode' | 'textColor' | 'lineColor'>;
 
 export const Label = styled.div<StyledLabelTypes>`
   ${({ theme }) => theme.MIXIN.FLEX({ align: 'center', justify: 'center' })};
@@ -16,18 +16,18 @@ export const Label = styled.div<StyledLabelTypes>`
     margin-right: 6px;
   }
 
-  ${({ labelStyle, backgroundColor, textColor }) => {
+  ${({ labelStyle, backgroundColorCode, textColor }) => {
     if (labelStyle === 'DARK') {
       return css`
-        background: ${darken(0.5, backgroundColor)};
-        color: ${lighten(0.2, backgroundColor)};
+        background: ${darken(0.5, backgroundColorCode)};
+        color: ${lighten(0.2, backgroundColorCode)};
         border: 1px solid;
-        border-color: ${lighten(0.2, backgroundColor)};
+        border-color: ${lighten(0.2, backgroundColorCode)};
       `;
     }
     if (labelStyle === 'LIGHT') {
       return css`
-        background: ${backgroundColor};
+        background: ${backgroundColorCode};
         color: ${textColor === 'WHITE' ? '#FFF' : '#000'};
       `;
     }
