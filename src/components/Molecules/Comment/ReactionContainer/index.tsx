@@ -10,10 +10,9 @@ import { UsedEmojisTypes } from '@/components/Molecules/Comment';
 
 import replaceUnicodeWithIcon from '@/utils/replaceUnicodeWithIcon';
 import { LoginUserInfoState } from '@/stores/loginUserInfo';
-import useFetchReaction from '@/hooks/useFetchReaction';
 import { ReactionTypes } from '@/components/Molecules/Dropdown/types';
 
-interface ReactionContainerTypes {
+export interface ReactionContainerTypes {
   reactions: ReactionTypes[];
   usedEmojis: UsedEmojisTypes[];
   issueId: number;

@@ -1,17 +1,11 @@
-import { COLORS } from '@/styles/theme';
 import * as S from '@/components/Molecules/Comment/index.styled';
 
-import Icon from '@/components/Atoms/Icon';
-import Button from '@/components/Atoms/Button';
-import Label from '@/components/Atoms/Label';
-
-import Dropdown from '@/components/Molecules/Dropdown';
 import Table from '@/components/Molecules/Table';
 import ReactionContainer from '@/components/Molecules/Comment/ReactionContainer';
+import HeaderTab from '@/components/Molecules/Comment/HeaderTab';
 
 import calcTimeForToday from '@/utils/calcForTimeToday';
 import { CommentsTypes, ReactionResponseTypes } from '@/types/issue';
-import { REACTIONS } from '@/components/Molecules/Dropdown/Panel/Reaction/mock';
 import useFetchReaction from '@/hooks/useFetchReaction';
 
 interface CommentTypes {
@@ -64,43 +58,14 @@ const Comment = ({ issueId, isAuthor, comment }: CommentTypes): JSX.Element => {
           <S.CommentInfo>
             <span className="author">{author.nickname}</span>
             <span className="timeStamp">{calcTimeForToday(createdAt)}</span>
-          </S.CommentInfo>
-          <S.CommentTab>
-            {isAuthor && (
-              <>
-                <Label
-                  labelStyle="LIGHT"
-                  title="작성자"
-                  backgroundColorCode={COLORS.BACKGROUND}
-                  lineColor={COLORS.LINE}
-                  textColor="BLACK"
-                />
-                <Button
-                  buttonStyle="NO_BORDER"
-                  iconInfo={{
-                    icon: 'Edit',
-                    stroke: COLORS.LABEL,
-                  }}
-                  label="편집"
-                  size="SMALL"
-                />
-              </>
-            )}
-            <Dropdown
-              indicatorProps={{
-                indicatorStyle: 'ICON',
-                indicatorLabel: '',
-                indicatorIcon: <Icon icon="Smile" stroke={COLORS.LABEL} />,
-              }}
-              type="Reaction"
-              panelProps={{
-                reactions: reactions!,
-                usedEmojis,
-                issueId,
-                commentId,
-              }}
+            <HeaderTab
+              isAuthor={isAuthor}
+              reactions={reactions!}
+              usedEmojis={usedEmojis}
+              issueId={issueId}
+              commentId={commentId}
             />
-          </S.CommentTab>
+          </S.CommentInfo>
         </S.Comment>
       }
       item={[
