@@ -149,6 +149,7 @@ const OPEN_CLOSE_STATE_LIST: IssueTypes[] = [
 export const ASSIGNEE_DROPDOWN_ARGS: DropdownTypes = {
   indicatorLabel: '담당자',
   indicatorStyle: 'STANDARD',
+  panelId: 'assignee',
   panelTitle: '담당자 필터',
   panelType: 'radio',
   panelList: USER_LIST,
@@ -158,6 +159,7 @@ export const ASSIGNEE_DROPDOWN_ARGS: DropdownTypes = {
 export const LABEL_DROPDOWN_ARGS: DropdownTypes = {
   indicatorLabel: '레이블',
   indicatorStyle: 'STANDARD',
+  panelId: 'label',
   panelTitle: '레이블 필터',
   panelType: 'checkbox',
   panelList: LABEL_LIST,
@@ -167,6 +169,7 @@ export const LABEL_DROPDOWN_ARGS: DropdownTypes = {
 export const MILESTONE_DROPDOWN_ARGS: DropdownTypes = {
   indicatorLabel: '마일스톤',
   indicatorStyle: 'STANDARD',
+  panelId: 'assignee',
   panelTitle: '마일스톤 필터',
   panelType: 'checkbox',
   panelList: MILESTONE_LIST,
@@ -176,6 +179,7 @@ export const MILESTONE_DROPDOWN_ARGS: DropdownTypes = {
 export const AUTHER_DROPDOWN_ARGS: DropdownTypes = {
   indicatorLabel: '작성자',
   indicatorStyle: 'STANDARD',
+  panelId: 'auther',
   panelTitle: '작성자 필터',
   panelType: 'radio',
   panelList: USER_LIST,
@@ -184,6 +188,7 @@ export const AUTHER_DROPDOWN_ARGS: DropdownTypes = {
 export const OPEN_CLOSE_DROPDOWN_ARGS: DropdownTypes = {
   indicatorLabel: '상태 수정',
   indicatorStyle: 'STANDARD',
+  panelId: 'state',
   panelTitle: '상태 변경',
   panelType: 'checkbox',
   panelList: OPEN_CLOSE_STATE_LIST,

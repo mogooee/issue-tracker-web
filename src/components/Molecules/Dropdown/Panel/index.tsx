@@ -5,7 +5,7 @@ import { LabelTypes } from '@/stores/labelList';
 import { MilestoneItemTypes } from '../../MilestoneItem';
 
 const DropdownPanel = ({ ...props }: DropdownPanelsTypes) => {
-  const { panelTitle, panelType, panelList, unusedOption } = props;
+  const { panelId, panelTitle, panelType, panelList, unusedOption } = props;
 
   return (
     <S.Panel>
@@ -31,7 +31,7 @@ const DropdownPanel = ({ ...props }: DropdownPanelsTypes) => {
 
           return (
             <S.PanelItem key={ITEM_KEY}>
-              <input id={ITEM_KEY} type={panelType} name={panelTitle} data-id={DATASET_ID} />
+              <input id={ITEM_KEY} type={panelType} name={panelTitle} data-id={DATASET_ID} data-panel={panelId} />
               <label htmlFor={ITEM_KEY}>
                 {backgroundColorCode && <PanelPreviewLabel backgroundColor={backgroundColorCode} />}
                 {profileImageUrl && <PanelPreviewLabel profileImageUrl={profileImageUrl} loginId={nickname} />}

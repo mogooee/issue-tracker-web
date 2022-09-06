@@ -28,6 +28,7 @@ export interface UNUSED_OPTIONS_TYPES {
 }
 
 export interface DropdownPanelsTypes {
+  panelId: 'assignee' | 'label' | 'milestone' | 'issue' | 'auther' | 'state';
   panelTitle: string;
   panelType: 'checkbox' | 'radio';
   panelList: LabelTypes[] | UserTypes[] | IssueTypes[] | MilestoneItemTypes[];
