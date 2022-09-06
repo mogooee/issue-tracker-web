@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Comment from '@/components/Molecules/Comment';
-import { comment } from '@/components/Molecules/Comment/mock';
+import { comment } from '@/mocks/tables/issue';
 
 export default {
   title: 'Molecules/Comment',

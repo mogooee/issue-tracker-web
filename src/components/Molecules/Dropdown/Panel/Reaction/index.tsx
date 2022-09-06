@@ -8,7 +8,6 @@ import Button from '@/components/Atoms/Button';
 import replaceUnicodeWithIcon from '@/utils/replaceUnicodeWithIcon';
 import { ReactionPanelTypes } from '@/components/Molecules/Dropdown/types';
 import { LoginUserInfoState } from '@/stores/loginUserInfo';
-import { REACTIONS } from '@/components/Molecules/Dropdown/Panel/Reaction/mock';
 
 interface HandleReactionTypes {
   type: 'ADD' | 'REMOVE';
@@ -40,13 +39,9 @@ const ReactionPanel = ({ reactions, usedEmojis, issueId, commentId }: ReactionPa
                 label={emojiIcon}
                 size="MEDIUM"
                 handleOnClick={() => {
-                  // 리액션 추가/제거 API
-                  // issueId, commentId prop 추가
-                  // reactionId : usedEmojis의 reactor중 memberId와 현재 접속한 유저Id가 같은 것을 파싱
-
                   const type = isUsed ? 'ADD' : 'REMOVE';
                   const reactionId = isUsed?.reactors.find(({ memberId }) => memberId === userInfo.id)?.reactionId!;
-                  const { name: emojiName } = REACTIONS.find((e) => unicode === e.unicode)!;
+                  const { name: emojiName } = reactions.find((e) => unicode === e.unicode)!;
 
                   handleReaction({ type, memberId: userInfo.id, reactionId, emojiName });
                 }}
