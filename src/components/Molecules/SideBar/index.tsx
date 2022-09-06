@@ -1,14 +1,60 @@
+/* eslint-disable array-callback-return */
+import { useState } from 'react';
 import * as S from '@/components/Molecules/SideBar/index.styles';
 import SideBarItem from '@/components/Molecules/SideBar/SideBarItem';
-import { SideBarTypes } from '@/components/Molecules/SideBar/types';
+import {
+  SideBarTypes,
+  isAssignTypes,
+  isLabelTypes,
+  isMilestoneTypes,
+  ContentListTypes,
+} from '@/components/Molecules/SideBar/types';
+
+import { LabelTypes } from '@/stores/labelList';
+import { UserTypes } from '@/components/Molecules/Dropdown/types';
+import { MilestoneItemTypes } from '@/components/Molecules/MilestoneItem';
 
 const SideBar = ({ ...props }: SideBarTypes) => {
   const { content, sideBarList } = props;
 
+  // recoil로 바꿔주기
+  const [contentList, setContentList] = useState(content);
+
+  const handleOnChange = (target: HTMLInputElement) => {
+    const { id, panel } = target.dataset;
+    const { checked } = target;
+
+    const sidebarItem = sideBarList.find((el) => el.id === panel);
+    const sidebarDropdownList: (UserTypes | LabelTypes | MilestoneItemTypes)[] = sidebarItem!.dropdownList;
+
+    const findContent = sidebarDropdownList.find((el) => {
+      if (isAssignTypes(el)) return el.nickname === id;
+      if (isLabelTypes(el) || isMilestoneTypes(el)) return el.title === target.dataset.id;
+    });
+
+    const contentKey = panel as keyof ContentListTypes;
+    const contentItem: (UserTypes | LabelTypes | MilestoneItemTypes)[] = contentList[contentKey];
+
+    const filterContent = contentItem.filter((el) => {
+      if (isAssignTypes(el)) return el.nickname !== id;
+      if (isLabelTypes(el) || isMilestoneTypes(el)) return el.title !== target.dataset.id;
+    });
+
+    if (checked) {
+      if (contentKey === 'milestone' && isMilestoneTypes(findContent!)) {
+        return setContentList({ ...contentList, [contentKey]: [findContent] });
+      }
+
+      return setContentList({ ...contentList, [contentKey]: [...contentList[contentKey], findContent] });
+    }
+
+    return setContentList({ ...contentList, [contentKey]: [...filterContent] });
+  };
+
   return (
     <S.SideBar>
       {sideBarList.map((item) => (
-        <SideBarItem {...item} key={item.id} content={content[item.id]} />
+        <SideBarItem {...item} key={item.id} content={contentList[item.id]} handleOnChange={handleOnChange} />
       ))}
     </S.SideBar>
   );

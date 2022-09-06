@@ -33,6 +33,8 @@ export interface DropdownPanelsTypes {
   panelType: 'checkbox' | 'radio';
   panelList: LabelTypes[] | UserTypes[] | IssueTypes[] | MilestoneItemTypes[];
   unusedOption?: UNUSED_OPTIONS_TYPES;
+  handleOnClick?: (target: HTMLInputElement) => void;
+  isChecked?: (title: string) => boolean;
 }
 
 // Panel/Label Types

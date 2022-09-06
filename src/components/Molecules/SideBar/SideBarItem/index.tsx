@@ -14,8 +14,22 @@ import {
   SideBarItemType,
 } from '@/components/Molecules/SideBar/types';
 
+import { LabelTypes } from '@/stores/labelList';
+import { UserTypes } from '@/components/Molecules/Dropdown/types';
+import { MilestoneItemTypes } from '@/components/Molecules/MilestoneItem';
+
 const SideBarItem = ({ ...props }: SideBarItemType & ContentItemTypes) => {
-  const { id, dropdownTitle, dropdownListTitle, dropdownList, dropdownType, content} = props;
+  const { id, dropdownTitle, dropdownListTitle, dropdownList, dropdownType, content, handleOnChange } = props;
+
+  const isChecked = (title: string) => {
+    const contentList: (UserTypes | LabelTypes | MilestoneItemTypes)[] = content;
+    const findContent = contentList.find((el) => {
+      if (isAssignTypes(el)) return el.nickname === title;
+      if (isLabelTypes(el) || isMilestoneTypes(el)) return el.title === title;
+    });
+
+    return !!findContent;
+  };
 
   return (
     <S.SideBarItem key={`sidebar-${id}`} className="sidebar_item">
@@ -26,6 +40,8 @@ const SideBarItem = ({ ...props }: SideBarItemType & ContentItemTypes) => {
         panelTitle={dropdownListTitle}
         panelList={dropdownList}
         panelType={dropdownType}
+        handleOnClick={handleOnChange}
+        isChecked={isChecked}
       />
       <S.SideBarContent isEmpty={!content.length}>
         {content.map((contentItem) => {
