@@ -1,3 +1,4 @@
+import { Label } from '@/components/Atoms/Label/index.styles';
 import styled from 'styled-components';
 
 export const StyledIssueItem = styled.div`
@@ -21,6 +22,14 @@ export const IssueTitle = styled.div`
     ${({ theme }) => theme.FONTSTYLES.LINK_MEDIUM};
     margin: 0px 8px;
   }
+
+  ${Label}:hover {
+    cursor: pointer;
+  }
+
+  ${Label}+${Label} {
+    margin-left: 8px;
+  }
 `;
 
 export const IssueContent = styled.div`
@@ -30,16 +39,20 @@ export const IssueContent = styled.div`
     ${({ theme }) => theme.FONTSTYLES.TEXT_SMALL};
   }
 
-  .timeStamp {
+  color: ${({ theme }) => theme.COLORS.LABEL};
+
+  .summary {
     margin: 0px 16px;
   }
 
   .milestone {
     display: inline-flex;
     align-items: center;
+
     svg {
-      margin-right: 8px;
+      margin: -3px 8px 0 0;
     }
+
     path {
       stroke: ${({ theme }) => theme.COLORS.LABEL};
       fill: ${({ theme }) => theme.COLORS.LABEL};

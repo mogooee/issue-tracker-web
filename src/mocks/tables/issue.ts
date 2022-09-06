@@ -1,4 +1,128 @@
-import { IssuesTypes } from '@/types/issue';
+import { IssuesTypes, ContentTypes } from '@/types/issue';
+
+export const issue: ContentTypes = {
+  id: 1,
+  title: '로우앤슬로우',
+  author: {
+    id: 1,
+    email: 'who.ho3ov@gmail.com',
+    nickname: 'hoo',
+    profileImage: 'https://avatars.githubusercontent.com/u/68011320?v=4',
+  },
+  comments: [
+    {
+      id: 1,
+      author: {
+        id: 1,
+        email: 'who.ho3ov@gmail.com',
+        nickname: 'hoo',
+        profileImage: 'https://avatars.githubusercontent.com/u/68011320?v=4',
+      },
+      content: '주문할 메뉴는 오리지널과 비프립플레이트입니다.',
+      createdAt: '2022-09-11T00:00:00',
+      issueCommentReactionsResponse: [
+        {
+          id: 1,
+          emoji: 'U+1F44D',
+          issueCommentReactorResponse: {
+            id: 1,
+            nickname: 'hoo',
+          },
+        },
+        {
+          id: 2,
+          emoji: 'U+1F44D',
+          issueCommentReactorResponse: {
+            id: 2,
+            nickname: 'ader',
+          },
+        },
+      ],
+    },
+    {
+      id: 2,
+      author: {
+        id: 2,
+        email: 'ak2j38@gmail.com',
+        nickname: 'ader',
+        profileImage: 'https://avatars.githubusercontent.com/u/29879110?v=4',
+      },
+      content: '너무 좋아요 소고기뭇국도 기대됩니다.',
+      createdAt: '2022-09-11T00:00:00',
+      issueCommentReactionsResponse: [
+        {
+          id: 4,
+          emoji: 'U+1F604',
+          issueCommentReactorResponse: {
+            id: 1,
+            nickname: 'hoo',
+          },
+        },
+      ],
+    },
+  ],
+  issueAssignees: {
+    issueAssignees: [
+      {
+        id: 1,
+        email: 'who.ho3ov@gmail.com',
+        nickname: 'hoo',
+        profileImage: 'https://avatars.githubusercontent.com/u/68011320?v=4',
+      },
+      {
+        id: 2,
+        email: 'ak2j38@gmail.com',
+        nickname: 'ader',
+        profileImage: 'https://avatars.githubusercontent.com/u/29879110?v=4',
+      },
+    ],
+  },
+  issueLabels: {
+    issueLabels: [
+      {
+        id: 1,
+        title: 'Feature',
+        backgroundColorCode: '#d4c5f9',
+        description: '기능 개발용 라벨입니다.',
+        textColor: 'BLACK',
+      },
+      {
+        id: 2,
+        title: 'Docs',
+        backgroundColorCode: '#d4c510',
+        description: '문서 추가용 라벨입니다.',
+        textColor: 'WHITE',
+      },
+      {
+        id: 3,
+        title: 'Bugs',
+        backgroundColorCode: '#d4c505',
+        description: '버그 수정용 라벨입니다.',
+        textColor: 'BLACK',
+      },
+      {
+        id: 4,
+        title: 'Question',
+        backgroundColorCode: '#d4c501',
+        description: '질문용 라벨입니다.',
+        textColor: 'WHITE',
+      },
+    ],
+  },
+  milestone: {
+    id: 1,
+    title: '제목만 있는 마일스톤',
+    description: null,
+    dueDate: null,
+    openIssueCount: 4,
+    closedIssueCount: 0,
+    closed: false,
+  },
+  issueHistories: [],
+  createdAt: '2022-09-11T00:00:00',
+  lastModifiedAt: '2022-09-11T00:00:00',
+  closed: false,
+};
 
 export const issues: IssuesTypes = {
   openIssueCount: 5,
