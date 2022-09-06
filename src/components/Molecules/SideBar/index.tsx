@@ -24,6 +24,11 @@ const SideBar = ({ ...props }: SideBarTypes) => {
     const { id, panel } = target.dataset;
     const { checked } = target;
 
+    // 마일스톤 없음 클릭시
+    if (id === 'none' && panel === 'milestone' && checked) {
+      return setContentList({ ...contentList, [panel]: [] });
+    }
+
     const sidebarItem = sideBarList.find((el) => el.id === panel);
     const sidebarDropdownList: (UserTypes | LabelTypes | MilestoneItemTypes)[] = sidebarItem!.dropdownList;
 
@@ -41,13 +46,12 @@ const SideBar = ({ ...props }: SideBarTypes) => {
     });
 
     if (checked) {
-      if (contentKey === 'milestone' && isMilestoneTypes(findContent!)) {
+      if (id !== 'none' && contentKey === 'milestone' && isMilestoneTypes(findContent!)) {
+        // 마일스톤 클릭시 하나의 요소만 들어갈 수 있도록 한다.
         return setContentList({ ...contentList, [contentKey]: [findContent] });
       }
-
       return setContentList({ ...contentList, [contentKey]: [...contentList[contentKey], findContent] });
     }
-
     return setContentList({ ...contentList, [contentKey]: [...filterContent] });
   };
 

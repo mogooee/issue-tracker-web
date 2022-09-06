@@ -10,13 +10,25 @@ import { MilestoneItemTypes } from '@/components/Molecules/MilestoneItem';
 const DropdownPanel = ({ ...props }: DropdownPanelsTypes) => {
   const { panelId, panelTitle, panelType, panelList, unusedOption, handleOnClick, isChecked } = props;
 
+  const handelOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const target = event.target as HTMLInputElement;
+    handleOnClick!(target);
+  };
+
   return (
     <S.Panel>
       <h3>{panelTitle}</h3>
       <ul>
         {unusedOption && (
           <S.PanelItem>
-            <input id={unusedOption.dataId} type={panelType} name={panelTitle} data-id={unusedOption.dataId} />
+            <input
+              id={unusedOption.dataId}
+              type={panelType}
+              name={panelTitle}
+              data-id={unusedOption.dataId}
+              data-panel={panelId}
+              onChange={handelOnChange}
+            />
             <label htmlFor={unusedOption.dataId}>
               <span>{unusedOption.title}</span>
             </label>
@@ -31,11 +43,6 @@ const DropdownPanel = ({ ...props }: DropdownPanelsTypes) => {
           const ITEM_KEY = `${panelTitle}-${issueId || labelId || milestoneId || userImgId}`;
           const INPUT_NAME = issueTitle || labelTitle || milestoneTitle || nickname;
           const DATASET_ID = dataId || labelTitle || milestoneTitle || nickname;
-
-          const handelOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-            const target = event.target as HTMLInputElement;
-            handleOnClick!(target);
-          };
 
           return (
             <S.PanelItem key={ITEM_KEY}>

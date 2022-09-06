@@ -42,6 +42,7 @@ const SideBarItem = ({ ...props }: SideBarItemType & ContentItemTypes) => {
         panelType={dropdownType}
         handleOnClick={handleOnChange}
         isChecked={isChecked}
+        unusedOption={id === 'milestone' ? { dataId: 'none', title: '마일스톤 없음' } : undefined}
       />
       <S.SideBarContent isEmpty={!content.length}>
         {content.map((contentItem) => {
