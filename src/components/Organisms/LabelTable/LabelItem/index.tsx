@@ -27,7 +27,7 @@ const LabelItem = ({ id, title, backgroundColorCode, description, textColor }: L
     <S.LabelItem>
       <Label
         title={title}
-        backgroundColor={backgroundColorCode}
+        backgroundColorCode={backgroundColorCode}
         textColor={textColor}
         onClick={() => handleLabelClick(title)}
       />
