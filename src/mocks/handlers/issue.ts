@@ -1,6 +1,8 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { rest } from 'msw';
 import { issues } from '@/mocks/tables/issue';
+import { REACTIONS } from '@/components/Molecules/Dropdown/Panel/Reaction/mock';
+
 const message = {
   message: '',
 };
@@ -23,4 +25,6 @@ export const issueHandlers = [
     return res(ctx.status(200), ctx.json(issue));
   }),
 
+  // 이모티콘 전체 조회
+  rest.get('api/issues/comments/reactions/emojis', (req, res, ctx) => res(ctx.status(200), ctx.json(REACTIONS))),
 ];
