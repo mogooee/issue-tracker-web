@@ -1,20 +1,22 @@
 import { useRecoilValue } from 'recoil';
 import { LoginUserInfoState } from '@/stores/loginUserInfo';
+import { useSearchParams } from 'react-router-dom';
 
 import styled from 'styled-components';
+import { COLORS } from '@/styles/theme';
 
 import Icon from '@/components/Atoms/Icon';
 import Button from '@/components/Atoms/Button';
 
 import FilterBar from '@/components/Molecules/FilterBar';
 import { FILTERBAR_INFO } from '@/components/Molecules/FilterBar/mocks';
-import { FILTER_TABS_INFO } from '@/components/Molecules/Dropdown/mocks';
+import { FILTER_TABS_INFO as FILTER_TABS } from '@/components/Molecules/Dropdown/mocks';
 import NavLink from '@/components/Molecules/NavLink';
 
 import Header from '@/components/Organisms/Header';
 import IssueTable from '@/components/Organisms/IssueTable';
-import { issueListData } from '@/components/Organisms/IssueTable/mocks';
-import { COLORS } from '@/styles/theme';
+
+import useFetchIssue from '@/hooks/useFetchIssue';
 
 const DivContainer = styled.div`
   ${({ theme }) => theme.MIXIN.FLEX({ align: 'center', justify: 'space-between' })};
@@ -30,8 +32,24 @@ const SubNav = styled.div`
 `;
 
 const Issues = () => {
+  const { issues } = useFetchIssue();
   const LoginUserInfoStateValue = useRecoilValue(LoginUserInfoState);
-  const FILTER_TABS = FILTER_TABS_INFO;
+
+  const [searchParams] = useSearchParams();
+
+  const definedIssueState = () => {
+    const queries = searchParams.get('q')?.split('+');
+
+    if (queries?.find((query) => query.includes('is:open'))) {
+      return 'OPEN';
+    }
+    if (queries?.find((query) => query.includes('is:closed'))) {
+      return 'CLOSED';
+    }
+    return 'ALL';
+  };
+
+  const issueState = definedIssueState();
 
   return (
     <div>
@@ -54,7 +72,7 @@ const Issues = () => {
           />
         </SubNav>
       </DivContainer>
-      <IssueTable issueListData={issueListData} filterTabs={FILTER_TABS} />
+      <IssueTable issues={issues!} filterTabs={FILTER_TABS} issueState={issueState} />
     </div>
   );
 };
