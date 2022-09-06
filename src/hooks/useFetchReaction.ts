@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { ReactionTypes } from '@/components/Molecules/Dropdown/types';
+import { ReactionTypes } from '@/types/reaction';
 import { getReactionData } from '@/api/reaction';
 
 const useFetchReaction = () => {

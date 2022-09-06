@@ -1,6 +1,7 @@
 import React from 'react';
 import * as panels from '@/components/Molecules/Dropdown/Panel/panels';
 import { UsedEmojisTypes } from '@/components/Molecules/Comment';
+import { ReactionTypes } from '@/types/reaction';
 
 // Indicator Types
 export interface DropdownIndicatorTypes {
@@ -53,21 +54,6 @@ export interface UserImgLabelTypes {
 }
 
 // ReactionPanel Types
-
-export type ReactionNameType =
-  | 'THUMBS_UP'
-  | 'THUMBS_DOWN'
-  | 'LAUGH'
-  | 'PARTY_POPPER'
-  | 'CONFUSED'
-  | 'HEART'
-  | 'ROCKET'
-  | 'EYES';
-
-export interface ReactionTypes {
-  name: ReactionNameType;
-  unicode: string;
-}
 
 export interface ReactionPanelTypes {
   reactions: ReactionTypes[];

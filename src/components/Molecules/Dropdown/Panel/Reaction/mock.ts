@@ -1,4 +1,4 @@
-import { ReactionTypes } from '@/components/Molecules/Dropdown/types';
+import { ReactionTypes } from '@/types/reaction';
 
 export const REACTIONS: ReactionTypes[] = [
   {

@@ -10,7 +10,7 @@ import { UsedEmojisTypes } from '@/components/Molecules/Comment';
 
 import replaceUnicodeWithIcon from '@/utils/replaceUnicodeWithIcon';
 import { LoginUserInfoState } from '@/stores/loginUserInfo';
-import { ReactionTypes } from '@/components/Molecules/Dropdown/types';
+import { ReactionTypes } from '@/types/reaction';
 
 export interface ReactionContainerTypes {
   reactions: ReactionTypes[];
