@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { rest } from 'msw';
 import { RedirectAuthTypes, SignInMemberTypes } from '@/api/redirectAuth';
+import { USER_LIST } from '@/components/Molecules/Dropdown/mocks';
 
 const userTable: SignInMemberTypes[] = [
   {
@@ -163,4 +164,12 @@ export const authHandlers = [
 
   // 로그아웃
   rest.head('api/members/signout', (req, res, ctx) => res(ctx.status(200))),
+
+  rest.get('api/members', (req, res, ctx) =>
+    // if (!req.cookies['refresh-token']) {
+    //   return res(ctx.status(400), ctx.json(false));
+    // }
+
+    res(ctx.status(200), ctx.json(USER_LIST)),
+  ),
 ];
