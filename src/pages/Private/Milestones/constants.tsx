@@ -47,12 +47,12 @@ export const BUTTON_PROPS: BUTTON_PROPS_TYPES = {
 
 export const NAV_DATA = [
   {
-    icon: <Icon icon="Tag" stroke="#14142B" />,
+    icon: <Icon icon="Tag" stroke={COLORS.TITLE_ACTIVE} />,
     link: '/label',
     title: '레이블',
   },
   {
-    icon: <Icon icon="Milestone" fill="#14142B" />,
+    icon: <Icon icon="Milestone" fill={COLORS.TITLE_ACTIVE} />,
     link: '/milestone',
     title: '마일스톤',
   },
