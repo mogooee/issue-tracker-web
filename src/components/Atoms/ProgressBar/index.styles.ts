@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const PrograssBar = styled.progress`
   display: block;
   width: 244px;
+  height: 10px;
   margin-bottom: 8px;
   appearance: none;
 
