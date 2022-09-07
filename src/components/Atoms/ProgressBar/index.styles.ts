@@ -6,6 +6,7 @@ export const PrograssBar = styled.progress`
   height: 10px;
   margin-bottom: 8px;
   appearance: none;
+  height: 10px;
 
   &::-webkit-progress-bar {
     border-radius: 10px;

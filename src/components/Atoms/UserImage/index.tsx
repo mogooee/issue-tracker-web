@@ -1,14 +1,12 @@
 import React from 'react';
 import * as S from '@/components/Atoms/UserImage/index.styles';
+import { UserTypes } from '@/types/issue';
 
-export interface UserImageTypes {
-  id: number;
-  nickname: string;
-  profileImage: string;
-  imgSize?: 'MEDIUM' | 'SMALL';
-}
+type AtomUserImage = { imgSize?: 'MEDIUM' | 'SMALL' };
 
 const DEFAULT_IMG = 'https://avatars.githubusercontent.com/u/92701121?v=4';
+
+export type UserImageTypes = UserTypes & AtomUserImage;
 
 const UserImage = ({ imgSize = 'SMALL', ...props }: UserImageTypes) => {
   const { id, nickname, profileImage } = props;

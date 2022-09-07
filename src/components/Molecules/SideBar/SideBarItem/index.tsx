@@ -34,24 +34,28 @@ const SideBarItem = ({ ...props }: SideBarItemType & ContentItemTypes) => {
   return (
     <S.SideBarItem key={`sidebar-${id}`} className="sidebar_item">
       <Dropdown
-        indicatorStyle="SIDEBAR"
-        indicatorLabel={dropdownTitle}
-        panelId={id}
-        panelTitle={dropdownListTitle}
-        panelList={dropdownList}
-        panelType={dropdownType}
-        handleOnClick={handleOnChange}
-        isChecked={isChecked}
-        unusedOption={id === 'milestone' ? { dataId: 'none', title: '마일스톤 없음' } : undefined}
+        indicatorProps={{
+          indicatorStyle: 'SIDEBAR',
+          indicatorLabel: dropdownTitle,
+        }}
+        type="List"
+        panelProps={{
+          panelId: id,
+          panelTitle: dropdownListTitle,
+          panelList: dropdownList,
+          panelType: dropdownType,
+          handleOnClick: handleOnChange,
+          isChecked,
+          unusedOption: id === 'milestone' ? { dataId: 'none', title: '마일스톤 없음' } : undefined,
+        }}
       />
       <S.SideBarContent isEmpty={!content.length}>
         {content.map((contentItem) => {
           if (isAssignTypes(contentItem)) {
-            const { id: userId, nickname, profileImageUrl } = contentItem;
             return (
-              <S.SideBarAssignee key={nickname}>
-                <UserImage id={Number(userId)} nickname={nickname} profileImage={profileImageUrl} imgSize="MEDIUM" />
-                <span>{nickname}</span>
+              <S.SideBarAssignee key={contentItem.nickname}>
+                <UserImage {...contentItem} imgSize="MEDIUM" />
+                <span>{contentItem.nickname}</span>
               </S.SideBarAssignee>
             );
           }
@@ -64,7 +68,7 @@ const SideBarItem = ({ ...props }: SideBarItemType & ContentItemTypes) => {
                   title={labelTitle}
                   labelStyle="LIGHT"
                   textColor={textColor}
-                  backgroundColor={backgroundColorCode}
+                  backgroundColorCode={backgroundColorCode}
                 />
               </li>
             );

@@ -6,12 +6,12 @@ import { COLORS } from '@/styles/theme';
 const PanelPreviewLabel = ({ ...props }: ColorLabelTypes | UserImgLabelTypes) => {
   const { backgroundColor } = props as ColorLabelTypes;
 
-  const { profileImageUrl, loginId } = props as UserImgLabelTypes;
+  const { profileImage, loginId } = props as UserImgLabelTypes;
   const userImgAlt = `${loginId}의 프로필사진`;
 
   return (
     <S.PreviewLabel>
-      {profileImageUrl && <img src={profileImageUrl} alt={userImgAlt} />}
+      {profileImage && <img src={profileImage} alt={userImgAlt} />}
       {backgroundColor && <Icon icon="SmallLabel" stroke={COLORS.LINE} fill={backgroundColor} />}
     </S.PreviewLabel>
   );

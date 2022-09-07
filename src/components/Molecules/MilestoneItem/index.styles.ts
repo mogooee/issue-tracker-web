@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
-import { StyledIssueItem } from '@/components/Molecules/IssueItem/index.styles';
 
-export const MilestoneItem = styled(StyledIssueItem)`
+export const MilestoneItem = styled.div`
   display: flex;
   justify-content: space-between;
 `;

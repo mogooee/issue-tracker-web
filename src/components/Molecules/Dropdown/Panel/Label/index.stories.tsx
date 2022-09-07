@@ -16,6 +16,6 @@ ColorLabel.args = {
 
 export const UserImgLabel = Template.bind({});
 UserImgLabel.args = {
-  profileImageUrl: 'https://avatars.githubusercontent.com/u/92701121?v=4',
+  profileImage: 'https://avatars.githubusercontent.com/u/92701121?v=4',
   loginId: '도톨',
 };

@@ -1,19 +1,27 @@
 import { LabelTypes } from '@/stores/labelList';
+
+import React from 'react';
+import * as panels from '@/components/Molecules/Dropdown/Panel/panels';
+import { UsedEmojisTypes } from '@/components/Molecules/Comment';
+import { ReactionTypes } from '@/types/reaction';
 import { MilestoneItemTypes } from '../MilestoneItem';
 
 // Indicator Types
+
 export interface DropdownIndicatorTypes {
-  indicatorStyle: 'STANDARD' | 'FILTERBAR' | 'SIDEBAR';
+  indicatorStyle: 'STANDARD' | 'FILTERBAR' | 'ICON' | 'SIDEBAR';
   indicatorLabel: string;
   isActive?: boolean;
+  indicatorIcon?: React.ReactNode;
 }
 
-// Panel Types
+// ListPanel Types
+
 export interface UserTypes {
-  id: number | string;
+  id: number;
   email: string;
   nickname: string;
-  profileImageUrl: string;
+  profileImage: string;
 }
 
 export interface IssueTypes {
@@ -27,7 +35,7 @@ export interface UNUSED_OPTIONS_TYPES {
   title: string;
 }
 
-export interface DropdownPanelsTypes {
+export interface ListPanelTypes {
   panelId: 'assignee' | 'label' | 'milestone' | 'issue' | 'auther' | 'state';
   panelTitle: string;
   panelType: 'checkbox' | 'radio';
@@ -37,15 +45,37 @@ export interface DropdownPanelsTypes {
   isChecked?: (title: string) => boolean;
 }
 
-// Panel/Label Types
+// ListPanel/Label Types
+
 export interface ColorLabelTypes {
   backgroundColor: string;
 }
 
 export interface UserImgLabelTypes {
-  profileImageUrl: string;
+  profileImage: string;
   loginId: string;
 }
 
+// ReactionPanel Types
+
+export interface ReactionPanelTypes {
+  reactions: ReactionTypes[];
+  usedEmojis: UsedEmojisTypes[];
+  issueId: number;
+  commentId: number;
+}
+
+export type PanelType = keyof typeof panels;
+export interface DropdownPanelTypes {
+  type: PanelType;
+  prop: ReactionPanelTypes | ListPanelTypes;
+}
+
 // Dropdown Types
-export type DropdownTypes = DropdownIndicatorTypes & DropdownPanelsTypes;
+
+export interface DropdownTypes<Panel> {
+  type: PanelType;
+  indicatorProps: DropdownIndicatorTypes;
+  panelProps: Panel;
+  isActive?: boolean;
+}

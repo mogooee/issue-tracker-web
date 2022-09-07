@@ -1,9 +1,9 @@
+import { Label } from '@/components/Atoms/Label/index.styles';
 import styled from 'styled-components';
 
 export const StyledIssueItem = styled.div`
   ${({ theme }) => theme.MIXIN.FLEX({ align: 'center', justify: 'flex-start' })};
   background: ${({ theme }) => theme.COLORS.OFF_WHITE};
-  padding: 24px 32px;
 
   .checkbox {
     margin-top: -35px;
@@ -22,6 +22,14 @@ export const IssueTitle = styled.div`
     ${({ theme }) => theme.FONTSTYLES.LINK_MEDIUM};
     margin: 0px 8px;
   }
+
+  ${Label}:hover {
+    cursor: pointer;
+  }
+
+  ${Label}+${Label} {
+    margin-left: 8px;
+  }
 `;
 
 export const IssueContent = styled.div`
@@ -31,16 +39,20 @@ export const IssueContent = styled.div`
     ${({ theme }) => theme.FONTSTYLES.TEXT_SMALL};
   }
 
-  .timeStamp {
+  color: ${({ theme }) => theme.COLORS.LABEL};
+
+  .summary {
     margin: 0px 16px;
   }
 
   .milestone {
     display: inline-flex;
     align-items: center;
+
     svg {
-      margin-right: 8px;
+      margin: -3px 8px 0 0;
     }
+
     path {
       stroke: ${({ theme }) => theme.COLORS.LABEL};
       fill: ${({ theme }) => theme.COLORS.LABEL};
@@ -55,11 +67,10 @@ export const Assignee = styled.div`
   }
 `;
 
-export const Template = styled.div<{ templateColumns: string }>`
+export const Template = styled.div`
   display: grid;
   align-items: center;
-  padding: 18px 32px;
-  grid-template-columns: ${({ templateColumns }) => templateColumns};
+  grid-template-columns: 60px auto 100px;
 
   .checkbox {
     margin-top: -35px;

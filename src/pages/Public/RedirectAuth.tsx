@@ -6,7 +6,7 @@ import { getAuthMemberData, RedirectAuthTypes } from '@/api/redirectAuth';
 import useLogin from '@/hooks/useLogin';
 
 const RedirectAuth = () => {
-  const { saveAuthLoginState } = useLogin();
+  const { setSuccessLoginState, saveAuthLoginState } = useLogin();
   const navigate = useNavigate();
 
   const [searchParams] = useSearchParams();
@@ -21,6 +21,7 @@ const RedirectAuth = () => {
     const { signInMember } = data;
 
     if (signInMember) {
+      setSuccessLoginState();
       saveAuthLoginState(signInMember);
       navigate('/issues');
     } else {

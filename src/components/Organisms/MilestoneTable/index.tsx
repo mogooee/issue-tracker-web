@@ -19,6 +19,7 @@ import SkeletonMilestoneTable from '@/components/Skeleton/MilestoneTable';
 import ErrorTable from '@/components/Organisms/ErrorTable';
 
 import useFetchMilestone from '@/hooks/useFetchMilestone';
+import { COLORS } from '@/styles/theme';
 
 export interface MilestoneListTypes {
   closedMilestones: MilestoneItemTypes[];
@@ -27,12 +28,12 @@ export interface MilestoneListTypes {
 
 const MILESTONE_STATE_TAB = (data: MilestoneListTypes) => [
   {
-    icon: <Icon icon="Milestone" fill="#14142B" stroke="#ffffff" />,
+    icon: <Icon icon="Milestone" fill={COLORS.TITLE_ACTIVE} stroke={COLORS.OFF_WHITE} />,
     link: '/milestone?state=open',
     title: `열린 마일스톤(${data.openedMilestones.length})`,
   },
   {
-    icon: <Icon icon="Archive" stroke="#14142B" />,
+    icon: <Icon icon="Archive" stroke={COLORS.TITLE_ACTIVE} />,
     link: '/milestone?state=closed',
     title: `닫힌 마일스톤(${data.closedMilestones.length})`,
   },
@@ -56,7 +57,7 @@ const MilestoneTable = () => {
       return milestoneList.map((info) => <MilestoneItem key={info.id} {...info} />);
     }
 
-    return <EmptyMilestoneItem />;
+    return [<EmptyMilestoneItem />];
   };
 
   useEffect(() => {}, [searchParams]);

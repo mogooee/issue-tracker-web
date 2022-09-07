@@ -1,3 +1,4 @@
+import { COLORS } from '@/styles/theme';
 import { atom } from 'recoil';
 
 type EditStateType = 'ADD' | 'EDIT' | 'DELETE' | null;
@@ -17,7 +18,7 @@ interface LabelStateTypes {
 const initLabelState: LabelTypes = {
   id: 0,
   title: '',
-  backgroundColorCode: '#EFF0F6',
+  backgroundColorCode: COLORS.INPUT_BACKGROUND,
   description: '',
   textColor: 'BLACK',
 };

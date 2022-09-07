@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { rest } from 'msw';
 import { RedirectAuthTypes, SignInMemberTypes } from '@/api/redirectAuth';
-import { USER_LIST } from '@/components/Molecules/Dropdown/mocks';
+import { USER_LIST } from '@/components/Molecules/Dropdown/mock';
 
 const userTable: SignInMemberTypes[] = [
   {
@@ -53,11 +53,7 @@ export const authHandlers = [
     };
 
     const response: RedirectAuthTypes = {
-      signUpFormData: {
-        resourceOwnerId: 'string',
-        email: 'hoo@gmail.com',
-        profileImage: 'string',
-      },
+      signUpFormData: null,
       signInMember: null,
       accessToken: {
         token: 'token',
