@@ -2,17 +2,13 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import SideBar from '@/components/Molecules/SideBar';
 import { SideBarItemType } from '@/components/Molecules/SideBar/types';
 
-import { useQuery } from '@tanstack/react-query';
-import useFetchMilestone from '@/hooks/useFetchMilestone';
-import useLabelFetch from '@/hooks/useLabelFetch';
-import { getMemberData } from '@/api/login_logout';
-import { UserTypes } from '@/components/Molecules/Dropdown/types';
-
 import { milestoneHandlers } from '@/mocks/handlers/milestones';
 import { labelHandlers } from '@/mocks/handlers/label';
 import { authHandlers } from '@/mocks/handlers/auth';
 
 import { DEFAULT_CONTENT_LIST, MOCK_CONTENT_LIST, SIDEBAR_PROPS } from '@/components/Molecules/SideBar/mock';
+
+import useFetchSideBarData from '@/hooks/useFetchSideBarData';
 
 export default {
   title: 'Molecules/SideBar',
@@ -20,31 +16,28 @@ export default {
 } as ComponentMeta<typeof SideBar>;
 
 const Content = () => {
-  const { milestoneData } = useFetchMilestone();
-  const { useGetLabel } = useLabelFetch();
-  const { data: labelList } = useGetLabel();
-  const { data: userList } = useQuery<UserTypes[]>(['users'], getMemberData);
+  const { memberData, labelData, milestoneData } = useFetchSideBarData();
 
   const MOCK_SIDEBAR_PROPS: SideBarItemType[] = [
     {
       id: 'assignee',
       dropdownTitle: '담당자',
       dropdownListTitle: '담당자 필터',
-      dropdownList: userList!,
+      dropdownList: memberData!,
       dropdownType: 'checkbox',
     },
     {
       id: 'label',
       dropdownTitle: '레이블',
       dropdownListTitle: '레이블 필터',
-      dropdownList: [...labelList!],
+      dropdownList: labelData!,
       dropdownType: 'checkbox',
     },
     {
       id: 'milestone',
       dropdownTitle: '마일스톤',
       dropdownListTitle: '마일스톤 필터',
-      dropdownList: [...milestoneData!.openedMilestones],
+      dropdownList: milestoneData!.openedMilestones,
       dropdownType: 'radio',
     },
   ];
