@@ -5,7 +5,11 @@ import TextArea from '@/components/Atoms/TextArea';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-const TextAreaEditer = ({ textAreaValue }: { textAreaValue: undefined | string }) => {
+interface TextAreaTypes {
+  textAreaValue?: string;
+}
+
+const TextAreaEditer = ({ textAreaValue }: TextAreaTypes) => {
   const [editerMode, setEditerMode] = useState<'Write' | 'Preview'>('Write');
   const [areaValue, setAreaValue] = useState<string>(textAreaValue || '');
 
