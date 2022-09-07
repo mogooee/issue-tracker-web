@@ -1,15 +1,13 @@
-import { LabelTypes } from '@/stores/labelList';
-import { UserTypes } from '@/components/Molecules/Dropdown/types';
-import { MilestoneItemTypes } from '@/components/Molecules/MilestoneItem';
+import { LabelTypes, UserTypes, MilestoneTypes } from '@/types/issue';
 
 export interface ContentListTypes {
   assignee: UserTypes[];
   label: LabelTypes[];
-  milestone: MilestoneItemTypes[];
+  milestone: MilestoneTypes[];
 }
 
 export interface ContentItemTypes {
-  content: UserTypes[] | LabelTypes[] | MilestoneItemTypes[];
+  content: UserTypes[] | LabelTypes[] | MilestoneTypes[];
   handleOnChange: (target: HTMLInputElement) => void;
 }
 
@@ -17,7 +15,7 @@ export interface SideBarItemType {
   id: keyof ContentListTypes;
   dropdownTitle: string;
   dropdownListTitle: string;
-  dropdownList: UserTypes[] | LabelTypes[] | MilestoneItemTypes[];
+  dropdownList: UserTypes[] | LabelTypes[] | MilestoneTypes[];
   dropdownType: 'checkbox' | 'radio';
 }
 
@@ -27,12 +25,11 @@ export interface SideBarTypes {
 }
 
 // Type Guard
-export const isAssignTypes = (props: UserTypes | LabelTypes | MilestoneItemTypes): props is UserTypes =>
+export const isAssignTypes = (props: UserTypes | LabelTypes | MilestoneTypes): props is UserTypes =>
   (props as UserTypes).nickname !== undefined;
 
-export const isLabelTypes = (props: UserTypes | LabelTypes | MilestoneItemTypes): props is LabelTypes =>
+export const isLabelTypes = (props: UserTypes | LabelTypes | MilestoneTypes): props is LabelTypes =>
   (props as LabelTypes).backgroundColorCode !== undefined;
 
-export const isMilestoneTypes = (props: UserTypes | LabelTypes | MilestoneItemTypes): props is MilestoneItemTypes =>
-  (props as MilestoneItemTypes).openIssueCount !== undefined &&
-  (props as MilestoneItemTypes).closedIssueCount !== undefined;
+export const isMilestoneTypes = (props: UserTypes | LabelTypes | MilestoneTypes): props is MilestoneTypes =>
+  (props as MilestoneTypes).openIssueCount !== undefined && (props as MilestoneTypes).closedIssueCount !== undefined;

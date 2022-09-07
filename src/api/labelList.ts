@@ -1,4 +1,4 @@
-import { LabelTypes } from '@/stores/labelList';
+import { LabelTypes } from '@/types/issue';
 import axios, { AxiosError } from 'axios';
 
 export const getLabelData = async (): Promise<LabelTypes[]> => {

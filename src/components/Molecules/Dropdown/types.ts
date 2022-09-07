@@ -1,10 +1,9 @@
-import { LabelTypes } from '@/stores/labelList';
+import { UserTypes, MilestoneTypes, LabelTypes } from '@/types/issue';
 
 import React from 'react';
 import * as panels from '@/components/Molecules/Dropdown/Panel/panels';
 import { UsedEmojisTypes } from '@/components/Molecules/Comment';
 import { ReactionTypes } from '@/types/reaction';
-import { MilestoneItemTypes } from '../MilestoneItem';
 
 // Indicator Types
 
@@ -16,13 +15,6 @@ export interface DropdownIndicatorTypes {
 }
 
 // ListPanel Types
-
-export interface UserTypes {
-  id: number;
-  email: string;
-  nickname: string;
-  profileImage: string;
-}
 
 export interface IssueTypes {
   id: number;
@@ -39,7 +31,7 @@ export interface ListPanelTypes {
   panelId: 'assignee' | 'label' | 'milestone' | 'issue' | 'auther' | 'state';
   panelTitle: string;
   panelType: 'checkbox' | 'radio';
-  panelList: LabelTypes[] | UserTypes[] | IssueTypes[] | MilestoneItemTypes[];
+  panelList: LabelTypes[] | UserTypes[] | IssueTypes[] | MilestoneTypes[];
   unusedOption?: UNUSED_OPTIONS_TYPES;
   handleOnClick?: (target: HTMLInputElement) => void;
   isChecked?: (title: string) => boolean;

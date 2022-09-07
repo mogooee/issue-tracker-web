@@ -2,9 +2,8 @@ import React from 'react';
 
 import PanelPreviewLabel from '@/components/Molecules/Dropdown/Panel/Label';
 
-import { ListPanelTypes, IssueTypes, UserTypes } from '@/components/Molecules/Dropdown/types';
-import { LabelTypes } from '@/stores/labelList';
-import { MilestoneItemTypes } from '@/components/Molecules/MilestoneItem';
+import { ListPanelTypes, IssueTypes } from '@/components/Molecules/Dropdown/types';
+import { UserTypes, MilestoneTypes, LabelTypes } from '@/types/issue';
 import * as S from '@/components/Molecules/Dropdown/Panel/List/index.styles';
 
 const ListPanel = ({ ...props }: ListPanelTypes) => {
@@ -37,7 +36,7 @@ const ListPanel = ({ ...props }: ListPanelTypes) => {
         {panelList.map(({ ...listProps }) => {
           const { id: issueId, title: issueTitle, dataId } = listProps as IssueTypes;
           const { id: labelId, title: labelTitle, backgroundColorCode } = listProps as LabelTypes;
-          const { id: milestoneId, title: milestoneTitle } = listProps as MilestoneItemTypes;
+          const { id: milestoneId, title: milestoneTitle } = listProps as MilestoneTypes;
           const { id: userImgId, nickname, profileImage } = listProps as UserTypes;
 
           const ITEM_KEY = `${panelTitle}-${issueId || labelId || milestoneId || userImgId}`;

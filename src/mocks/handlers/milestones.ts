@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { rest } from 'msw';
 import { MilestoneListTypes } from '@/components/Organisms/MilestoneTable';
-import { MilestoneItemTypes } from '@/components/Molecules/MilestoneItem';
+import { MilestoneTypes } from '@/types/issue';
 
 const tokenErrorMessage = { message: '토큰이 유효하지 않습니다.' };
 
@@ -79,7 +79,7 @@ export const milestoneHandlers = [
     const { id } = req.params;
     const patchMilestone = await req.json();
 
-    const patchMilestones = Object.values(milestones).map((state: MilestoneItemTypes[]) => {
+    const patchMilestones = Object.values(milestones).map((state: MilestoneTypes[]) => {
       if (state.find((el) => el.id === Number(id))) {
         const updateMilestones = state.map((el) => (el.id === Number(id) ? { ...el, ...patchMilestone } : el));
         return updateMilestones;
@@ -102,8 +102,8 @@ export const milestoneHandlers = [
     const { id } = req.params;
 
     const find = () => {
-      const result: MilestoneItemTypes[] = [];
-      Object.values(milestones).forEach((state: MilestoneItemTypes[]) => {
+      const result: MilestoneTypes[] = [];
+      Object.values(milestones).forEach((state: MilestoneTypes[]) => {
         const findMilestone = state.find((el) => el.id === Number(id));
         if (findMilestone) {
           result.push(findMilestone);
@@ -133,7 +133,7 @@ export const milestoneHandlers = [
   rest.delete('api/milestones/:id', async (req, res, ctx) => {
     const { id } = req.params;
 
-    const deleteMilestones = Object.values(milestones).map((state: MilestoneItemTypes[]) => {
+    const deleteMilestones = Object.values(milestones).map((state: MilestoneTypes[]) => {
       if (state.find((el) => el.id === Number(id))) {
         return state.filter((el) => el.id !== Number(id));
       }

@@ -1,4 +1,4 @@
-import { LabelTypes } from '@/stores/labelList';
+import { LabelTypes } from '@/types/issue';
 
 export const labelContents: LabelTypes[] = [
   {

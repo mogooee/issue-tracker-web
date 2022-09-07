@@ -10,9 +10,7 @@ import {
   ContentListTypes,
 } from '@/components/Molecules/SideBar/types';
 
-import { LabelTypes } from '@/stores/labelList';
-import { UserTypes } from '@/components/Molecules/Dropdown/types';
-import { MilestoneItemTypes } from '@/components/Molecules/MilestoneItem';
+import { LabelTypes, UserTypes, MilestoneTypes } from '@/types/issue';
 
 const SideBar = ({ ...props }: SideBarTypes) => {
   const { content, sideBarList } = props;
@@ -30,7 +28,7 @@ const SideBar = ({ ...props }: SideBarTypes) => {
     }
 
     const sidebarItem = sideBarList.find((el) => el.id === panel);
-    const sidebarDropdownList: (UserTypes | LabelTypes | MilestoneItemTypes)[] = sidebarItem!.dropdownList;
+    const sidebarDropdownList: (UserTypes | LabelTypes | MilestoneTypes)[] = sidebarItem!.dropdownList;
 
     const findContent = sidebarDropdownList.find((el) => {
       if (isAssignTypes(el)) return el.nickname === id;
@@ -38,7 +36,7 @@ const SideBar = ({ ...props }: SideBarTypes) => {
     });
 
     const contentKey = panel as keyof ContentListTypes;
-    const contentItem: (UserTypes | LabelTypes | MilestoneItemTypes)[] = contentList[contentKey];
+    const contentItem: (UserTypes | LabelTypes | MilestoneTypes)[] = contentList[contentKey];
 
     const filterContent = contentItem.filter((el) => {
       if (isAssignTypes(el)) return el.nickname !== id;

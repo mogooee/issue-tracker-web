@@ -1,15 +1,8 @@
 import Icon from '@/components/Atoms/Icon';
-import {
-  IssueTypes,
-  UserTypes,
-  DropdownTypes,
-  ListPanelTypes,
-  ReactionPanelTypes,
-} from '@/components/Molecules/Dropdown/types';
+import { IssueTypes, DropdownTypes, ListPanelTypes, ReactionPanelTypes } from '@/components/Molecules/Dropdown/types';
 import { COLORS } from '@/styles/theme';
 import { REACTIONS } from '@/components/Molecules/Dropdown/Panel/Reaction/mock';
-import { LabelTypes } from '@/stores/labelList';
-import { MilestoneItemTypes } from '@/components/Molecules/MilestoneItem';
+import { LabelTypes, MilestoneTypes, UserTypes } from '@/types/issue';
 
 export const UNUSED_OPTIONS = {
   ASSIGNEE: {
@@ -111,7 +104,7 @@ export const USER_LIST: UserTypes[] = [
   },
 ];
 
-export const MILESTONE_LIST: MilestoneItemTypes[] = [
+export const MILESTONE_LIST: MilestoneTypes[] = [
   {
     id: 0,
     title: '마일스톤 1',

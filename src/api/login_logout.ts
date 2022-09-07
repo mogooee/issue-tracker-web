@@ -1,6 +1,6 @@
+import { UserTypes } from '@/types/issue';
 import axios, { AxiosError } from 'axios';
 import { OAuthResponse } from '@/api/signUp';
-import { UserTypes } from '@/components/Molecules/Dropdown/types';
 
 export const silentRefresh = async () => {
   try {

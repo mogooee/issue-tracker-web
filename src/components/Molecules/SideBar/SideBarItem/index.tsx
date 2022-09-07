@@ -14,15 +14,13 @@ import {
   SideBarItemType,
 } from '@/components/Molecules/SideBar/types';
 
-import { LabelTypes } from '@/stores/labelList';
-import { UserTypes } from '@/components/Molecules/Dropdown/types';
-import { MilestoneItemTypes } from '@/components/Molecules/MilestoneItem';
+import { LabelTypes, UserTypes, MilestoneTypes } from '@/types/issue';
 
 const SideBarItem = ({ ...props }: SideBarItemType & ContentItemTypes) => {
   const { id, dropdownTitle, dropdownListTitle, dropdownList, dropdownType, content, handleOnChange } = props;
 
   const isChecked = (title: string) => {
-    const contentList: (UserTypes | LabelTypes | MilestoneItemTypes)[] = content;
+    const contentList: (UserTypes | LabelTypes | MilestoneTypes)[] = content;
     const findContent = contentList.find((el) => {
       if (isAssignTypes(el)) return el.nickname === title;
       if (isLabelTypes(el) || isMilestoneTypes(el)) return el.title === title;

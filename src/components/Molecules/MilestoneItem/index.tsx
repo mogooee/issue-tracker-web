@@ -12,18 +12,9 @@ import { MILESTONE_BUTTON_INFO } from '@/components/Molecules/MilestoneItem/cons
 import { COLORS } from '@/styles/theme';
 import useFetchMilestone from '@/hooks/useFetchMilestone';
 import { ClickMilestoneState } from '@/stores/milestone';
+import { MilestoneTypes } from '@/types/issue';
 
-export interface MilestoneItemTypes {
-  id: number;
-  title: string;
-  description: string | null;
-  dueDate: string | null;
-  closed: boolean;
-  openIssueCount: number;
-  closedIssueCount: number;
-}
-
-const MilestoneItem = (props: MilestoneItemTypes) => {
+const MilestoneItem = (props: MilestoneTypes) => {
   const { patchMilestoneStateMutate } = useFetchMilestone();
 
   const { id, title, description, dueDate, openIssueCount, closedIssueCount, closed } = props;

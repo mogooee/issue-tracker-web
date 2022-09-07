@@ -1,14 +1,8 @@
+import { LabelTypes } from '@/types/issue';
 import { COLORS } from '@/styles/theme';
 import { atom } from 'recoil';
 
 type EditStateType = 'ADD' | 'EDIT' | 'DELETE' | null;
-export interface LabelTypes {
-  id: number;
-  title: string;
-  backgroundColorCode: string;
-  description: string;
-  textColor: 'WHITE' | 'BLACK';
-}
 
 interface LabelStateTypes {
   type: EditStateType;

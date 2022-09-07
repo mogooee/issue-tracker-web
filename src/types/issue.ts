@@ -9,7 +9,6 @@ export interface ReactionResponseTypes {
   issueCommentReactorResponse: ReactorResponseTypes;
 }
 
-// UserTypes
 export interface UserTypes {
   id: number;
   email: string;

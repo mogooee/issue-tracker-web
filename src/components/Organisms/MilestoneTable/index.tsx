@@ -12,8 +12,9 @@ import DeleteMilestoneModal from '@/components/Modal/DeleteMilestone';
 import Icon from '@/components/Atoms/Icon';
 import NavLink from '@/components/Molecules/NavLink';
 import Table from '@/components/Molecules/Table';
-import MilestoneItem, { MilestoneItemTypes } from '@/components/Molecules/MilestoneItem';
+import MilestoneItem from '@/components/Molecules/MilestoneItem';
 import EmptyMilestoneItem from '@/components/Molecules/MilestoneItem/EmptyItem';
+import { MilestoneTypes } from '@/types/issue';
 
 import SkeletonMilestoneTable from '@/components/Skeleton/MilestoneTable';
 import ErrorTable from '@/components/Organisms/ErrorTable';
@@ -22,8 +23,8 @@ import useFetchMilestone from '@/hooks/useFetchMilestone';
 import { COLORS } from '@/styles/theme';
 
 export interface MilestoneListTypes {
-  closedMilestones: MilestoneItemTypes[];
-  openedMilestones: MilestoneItemTypes[];
+  closedMilestones: MilestoneTypes[];
+  openedMilestones: MilestoneTypes[];
 }
 
 const MILESTONE_STATE_TAB = (data: MilestoneListTypes) => [
@@ -52,7 +53,7 @@ const MilestoneTable = () => {
     if (stateParam === 'closed') return false;
   };
 
-  const renderMilestones = (milestoneList: MilestoneItemTypes[]) => {
+  const renderMilestones = (milestoneList: MilestoneTypes[]) => {
     if (milestoneList.length) {
       return milestoneList.map((info) => <MilestoneItem key={info.id} {...info} />);
     }
