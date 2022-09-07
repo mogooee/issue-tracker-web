@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 import { ReactionPanel } from '@/components/Molecules/Dropdown/Panel/Reaction/index.styled';
 
-export const Comment = styled.div`
-  ${({ theme }) => theme.MIXIN.FLEX({ align: 'center', justify: 'space-between' })};
+export const CommentHeader = styled.div`
+  display: grid;
+  grid-template-columns: max-content auto max-content;
   ${({ theme }) => theme.FONTSTYLES.TEXT_SMALL}
   height:28px;
-`;
 
-export const CommentInfo = styled.div`
   span + span {
     margin-left: 8px;
   }

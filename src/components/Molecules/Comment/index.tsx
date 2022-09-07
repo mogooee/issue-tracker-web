@@ -54,19 +54,17 @@ const Comment = ({ issueId, isAuthor, comment }: CommentTypes): JSX.Element => {
   return (
     <Table
       header={
-        <S.Comment>
-          <S.CommentInfo>
-            <span className="author">{author.nickname}</span>
-            <span className="timeStamp">{calcTimeForToday(createdAt)}</span>
-            <HeaderTab
-              isAuthor={isAuthor}
-              reactions={reactions!}
-              usedEmojis={usedEmojis}
-              issueId={issueId}
-              commentId={commentId}
-            />
-          </S.CommentInfo>
-        </S.Comment>
+        <S.CommentHeader>
+          <span className="author">{author.nickname}</span>
+          <span className="timeStamp">{calcTimeForToday(createdAt)}</span>
+          <HeaderTab
+            isAuthor={isAuthor}
+            reactions={reactions!}
+            usedEmojis={usedEmojis}
+            issueId={issueId}
+            commentId={commentId}
+          />
+        </S.CommentHeader>
       }
       item={[
         <S.CommentContent>
