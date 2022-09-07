@@ -23,7 +23,7 @@ const ReactionPanel = ({ reactions, usedEmojis, issueId, commentId }: ReactionPa
     <S.ReactionPanel>
       <ul>
         {reactions.map(({ name, unicode }) => {
-          const isUsed = usedEmojis?.find(({ emoji }) => emoji === unicode);
+          const isUsed = usedEmojis?.find(({ reactors }) => reactors.find(({ memberId }) => memberId === userInfo.id));
 
           const emojiIcon = unicode.split(' ').reduce((acc, cur) => acc + replaceUnicodeWithIcon(cur), '');
 
