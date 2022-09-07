@@ -21,6 +21,7 @@ export interface ReactionContainerTypes {
 
 const ReactionContainer = ({ reactions, usedEmojis, issueId, commentId }: ReactionContainerTypes) => {
   const userInfo = useRecoilValue(LoginUserInfoState);
+  const isUsed = usedEmojis?.find(({ reactors }) => reactors.find(({ memberId }) => memberId === userInfo.id));
 
   return (
     <S.ReactionTab>
@@ -40,12 +41,13 @@ const ReactionContainer = ({ reactions, usedEmojis, issueId, commentId }: Reacti
       />
       {usedEmojis.map(({ emoji, reactors }) => {
         const { name } = reactions.find(({ unicode }) => unicode === emoji)!;
+
         return (
           <S.Reaction key={emoji} nickname={reactors.map(({ nickname }) => nickname)} emoji={name}>
             <Label
               labelStyle="LIGHT"
-              backgroundColorCode={COLORS.PRIMARY.LIGHT_BLUE}
-              lineColor={COLORS.PRIMARY.BLUE}
+              backgroundColorCode={isUsed ? COLORS.PRIMARY.LIGHT_BLUE : COLORS.BACKGROUND}
+              lineColor={isUsed ? COLORS.PRIMARY.BLUE : COLORS.LABEL}
               textColor="BLACK"
               title={`${replaceUnicodeWithIcon(emoji)} ${reactors.length}`}
               onClick={() => {
