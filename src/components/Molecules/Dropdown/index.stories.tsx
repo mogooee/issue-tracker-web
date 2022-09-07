@@ -28,10 +28,10 @@ const Template: ComponentStory<typeof Dropdown> = (args) => (
 );
 
 export const Initial = Template.bind({});
-Initial.args = { ...ASSIGNEE_DROPDOWN_ARGS, type: 'List' };
+Initial.args = ASSIGNEE_DROPDOWN_ARGS;
 
 export const Sidebar = Template.bind({});
-Sidebar.args = { ...SIDEBAR_ARGS, type: 'List' };
+Sidebar.args = SIDEBAR_ARGS;
 
 export const Reaction = Template.bind({});
-Reaction.args = { ...REACTION_ARGS, type: 'Reaction' };
+Reaction.args = REACTION_ARGS;

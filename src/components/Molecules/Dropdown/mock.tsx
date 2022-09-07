@@ -243,12 +243,14 @@ export const REACTION_ARGS: DropdownTypes<ReactionPanelTypes> = {
   },
 };
 
-export const SIDEBAR_ARGS = {
+export const SIDEBAR_ARGS: DropdownTypes<ListPanelTypes> = {
+  type: 'List',
   indicatorProps: {
     indicatorLabel: '마일스톤',
     indicatorStyle: 'SIDEBAR',
   },
   panelProps: {
+    panelId: 'milestone',
     panelTitle: '마일스톤 필터',
     panelType: 'checkbox',
     panelList: MILESTONE_LIST,
