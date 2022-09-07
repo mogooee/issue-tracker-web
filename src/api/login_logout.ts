@@ -1,5 +1,6 @@
 import axios, { AxiosError } from 'axios';
 import { OAuthResponse } from '@/api/signUp';
+import { UserTypes } from '@/components/Molecules/Dropdown/types';
 
 export const silentRefresh = async () => {
   try {
@@ -47,6 +48,16 @@ export const logout = async () => {
     await axios.head('api/members/signout');
     axios.defaults.headers.common.Authorization = '';
     localStorage.removeItem('Authentication');
+  } catch (error) {
+    const err = error as AxiosError;
+    throw err;
+  }
+};
+
+export const getMemberData = async () => {
+  try {
+    const { data } = await axios.get<UserTypes[]>('api/members');
+    return data;
   } catch (error) {
     const err = error as AxiosError;
     throw err;

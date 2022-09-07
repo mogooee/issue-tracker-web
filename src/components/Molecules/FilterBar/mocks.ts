@@ -3,6 +3,7 @@ import { ISSUE_FILTER_LIST } from '@/components/Molecules/Dropdown/mocks';
 
 export const FILTERBAR_INFO: FILTERBAR_INFO_TYPES = {
   DROPDOWN: {
+    panelId: 'issue',
     indicatorLabel: '필터',
     indicatorStyle: 'FILTERBAR',
     panelTitle: '체크박스 필터',

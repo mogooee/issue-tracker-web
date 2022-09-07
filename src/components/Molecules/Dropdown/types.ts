@@ -1,21 +1,18 @@
+import { LabelTypes } from '@/stores/labelList';
+import { MilestoneItemTypes } from '../MilestoneItem';
+
 // Indicator Types
 export interface DropdownIndicatorTypes {
-  indicatorStyle: 'STANDARD' | 'FILTERBAR';
+  indicatorStyle: 'STANDARD' | 'FILTERBAR' | 'SIDEBAR';
   indicatorLabel: string;
   isActive?: boolean;
 }
 
 // Panel Types
-export interface LabelTypes {
-  id: number | string;
-  title: string;
-  backgroundColor: string;
-  titleColor?: 'black' | 'white';
-}
-
 export interface UserTypes {
   id: number | string;
-  loginId: string;
+  email: string;
+  nickname: string;
   profileImageUrl: string;
 }
 
@@ -31,10 +28,13 @@ export interface UNUSED_OPTIONS_TYPES {
 }
 
 export interface DropdownPanelsTypes {
+  panelId: 'assignee' | 'label' | 'milestone' | 'issue' | 'auther' | 'state';
   panelTitle: string;
   panelType: 'checkbox' | 'radio';
-  panelList: LabelTypes[] | UserTypes[] | IssueTypes[];
+  panelList: LabelTypes[] | UserTypes[] | IssueTypes[] | MilestoneItemTypes[];
   unusedOption?: UNUSED_OPTIONS_TYPES;
+  handleOnClick?: (target: HTMLInputElement) => void;
+  isChecked?: (title: string) => boolean;
 }
 
 // Panel/Label Types

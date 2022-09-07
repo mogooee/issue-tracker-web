@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const PrograssBar = styled.progress`
   display: block;
   width: 244px;
+  height: 10px;
   margin-bottom: 8px;
   appearance: none;
 
@@ -18,10 +19,16 @@ export const PrograssBar = styled.progress`
 `;
 
 export const PrograssState = styled.div`
-  display: grid;
-  width: 244px;
-  grid-template-columns: 45% 25% 25%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
   gap: 8px;
+
+  div {
+    span + span {
+      margin-left: 8px;
+    }
+  }
 
   span {
     ${({ theme }) => theme.FONTSTYLES.TEXT_XSMALL};

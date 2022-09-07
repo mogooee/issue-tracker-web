@@ -13,6 +13,8 @@ const milestones: MilestoneListTypes = {
       description: null,
       dueDate: null,
       closed: false,
+      openIssueCount: 3,
+      closedIssueCount: 7,
     },
     {
       id: 2,
@@ -20,6 +22,8 @@ const milestones: MilestoneListTypes = {
       description: '열린 마일스톤에 대한 설명',
       dueDate: '2022-08-28',
       closed: false,
+      openIssueCount: 5,
+      closedIssueCount: 5,
     },
   ],
   closedMilestones: [
@@ -29,6 +33,8 @@ const milestones: MilestoneListTypes = {
       description: '닫힌 마일스톤에 대한 설명',
       dueDate: null,
       closed: true,
+      openIssueCount: 16,
+      closedIssueCount: 13,
     },
   ],
 };
@@ -60,6 +66,8 @@ export const milestoneHandlers = [
       description,
       dueDate,
       closed: false,
+      openIssueCount: 0,
+      closedIssueCount: 0,
     };
 
     milestones.openedMilestones.push(newMilestone);

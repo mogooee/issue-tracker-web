@@ -1,4 +1,6 @@
-import { IssueTypes, LabelTypes, UserTypes, DropdownTypes } from '@/components/Molecules/Dropdown/types';
+import { IssueTypes, UserTypes, DropdownTypes } from '@/components/Molecules/Dropdown/types';
+import { LabelTypes } from '@/stores/labelList';
+import { MilestoneItemTypes } from '@/components/Molecules/MilestoneItem';
 
 export const UNUSED_OPTIONS = {
   ASSIGNEE: {
@@ -47,45 +49,87 @@ export const LABEL_LIST: LabelTypes[] = [
   {
     id: 0,
     title: 'feature',
-    backgroundColor: '#007AFF',
+    backgroundColorCode: '#007AFF',
+    description: '',
+    textColor: 'BLACK',
   },
   {
     id: 1,
     title: 'Fix',
-    backgroundColor: '#FFD1CF',
+    backgroundColorCode: '#FFD1CF',
+    description: '',
+    textColor: 'BLACK',
   },
   {
     id: 2,
     title: 'refactor',
-    backgroundColor: '#34C759',
+    backgroundColorCode: '#34C759',
+    description: '',
+    textColor: 'BLACK',
   },
 ];
 
 export const USER_LIST: UserTypes[] = [
   {
     id: 0,
-    loginId: '도비',
+    email: 'dobby@gmail.com',
+    nickname: '도비',
     profileImageUrl: 'https://avatars.githubusercontent.com/u/85747667?v=4',
   },
   {
     id: 1,
-    loginId: '도톨',
+    email: 'dotori@gmail.com',
+    nickname: '도토리',
     profileImageUrl: 'https://avatars.githubusercontent.com/u/92701121?v=4',
   },
   {
     id: 2,
-    loginId: '후',
+    email: 'whoo@gmail.com',
+    nickname: '후',
     profileImageUrl: 'https://avatars.githubusercontent.com/u/68011320?v=4',
   },
   {
     id: 3,
-    loginId: '아더',
+    email: 'ader@gmail.com',
+    nickname: '아더',
     profileImageUrl: 'https://avatars.githubusercontent.com/u/29879110?v=4',
   },
   {
     id: 4,
-    loginId: '벡',
+    email: 'beck@gmail.com',
+    nickname: '벡',
     profileImageUrl: 'https://avatars.githubusercontent.com/u/65931336?v=4',
+  },
+];
+
+export const MILESTONE_LIST: MilestoneItemTypes[] = [
+  {
+    id: 0,
+    title: '마일스톤 1',
+    description: null,
+    dueDate: null,
+    closed: false,
+    openIssueCount: 3,
+    closedIssueCount: 7,
+  },
+
+  {
+    id: 1,
+    title: '마일스톤 2',
+    description: '닫힌 마일스톤에 대한 설명',
+    dueDate: null,
+    closed: true,
+    openIssueCount: 16,
+    closedIssueCount: 13,
+  },
+  {
+    id: 2,
+    title: '마일스톤 3',
+    description: '열린 마일스톤에 대한 설명',
+    dueDate: '2022-08-28',
+    closed: false,
+    openIssueCount: 5,
+    closedIssueCount: 5,
   },
 ];
 
@@ -105,6 +149,7 @@ const OPEN_CLOSE_STATE_LIST: IssueTypes[] = [
 export const ASSIGNEE_DROPDOWN_ARGS: DropdownTypes = {
   indicatorLabel: '담당자',
   indicatorStyle: 'STANDARD',
+  panelId: 'assignee',
   panelTitle: '담당자 필터',
   panelType: 'radio',
   panelList: USER_LIST,
@@ -114,6 +159,7 @@ export const ASSIGNEE_DROPDOWN_ARGS: DropdownTypes = {
 export const LABEL_DROPDOWN_ARGS: DropdownTypes = {
   indicatorLabel: '레이블',
   indicatorStyle: 'STANDARD',
+  panelId: 'label',
   panelTitle: '레이블 필터',
   panelType: 'checkbox',
   panelList: LABEL_LIST,
@@ -123,15 +169,17 @@ export const LABEL_DROPDOWN_ARGS: DropdownTypes = {
 export const MILESTONE_DROPDOWN_ARGS: DropdownTypes = {
   indicatorLabel: '마일스톤',
   indicatorStyle: 'STANDARD',
+  panelId: 'assignee',
   panelTitle: '마일스톤 필터',
   panelType: 'checkbox',
-  panelList: LABEL_LIST,
+  panelList: MILESTONE_LIST,
   unusedOption: UNUSED_OPTIONS.MILESTONE,
 };
 
 export const AUTHER_DROPDOWN_ARGS: DropdownTypes = {
   indicatorLabel: '작성자',
   indicatorStyle: 'STANDARD',
+  panelId: 'auther',
   panelTitle: '작성자 필터',
   panelType: 'radio',
   panelList: USER_LIST,
@@ -140,6 +188,7 @@ export const AUTHER_DROPDOWN_ARGS: DropdownTypes = {
 export const OPEN_CLOSE_DROPDOWN_ARGS: DropdownTypes = {
   indicatorLabel: '상태 수정',
   indicatorStyle: 'STANDARD',
+  panelId: 'state',
   panelTitle: '상태 변경',
   panelType: 'checkbox',
   panelList: OPEN_CLOSE_STATE_LIST,
