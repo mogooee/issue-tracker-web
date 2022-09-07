@@ -49,7 +49,7 @@ const TextArea = ({ textAreaValue, setAreaValue }: TextAreaTypes) => {
         ref={textAreaRef}
         onChange={handleTextareaChange}
       >
-        {textAreaValue}
+        {textAreaValue || undefined}
       </S.TextArea>
       <S.TextAreaAddFile className="textArea_addFile" isActive={isActive}>
         <label htmlFor="textArea_addFile">
