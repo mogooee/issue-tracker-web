@@ -23,8 +23,8 @@ const ReactionPanel = ({ reactions, usedEmojis, issueId, commentId }: ReactionPa
     <S.ReactionPanel>
       <ul>
         {reactions.map(({ name, unicode }) => {
-          const isUsed = usedEmojis?.find(({ reactors }) => reactors.find(({ memberId }) => memberId === userInfo.id));
-
+          const reactors = usedEmojis?.find(({ emoji }) => emoji === unicode)?.reactors!;
+          const isUsed = reactors?.find(({ memberId }) => memberId === userInfo.id);
           const emojiIcon = unicode.split(' ').reduce((acc, cur) => acc + replaceUnicodeWithIcon(cur), '');
 
           const handleReaction = ({ type, memberId, reactionId, emojiName }: HandleReactionTypes) => {
@@ -40,7 +40,7 @@ const ReactionPanel = ({ reactions, usedEmojis, issueId, commentId }: ReactionPa
                 size="MEDIUM"
                 handleOnClick={() => {
                   const type = isUsed ? 'ADD' : 'REMOVE';
-                  const reactionId = isUsed?.reactors.find(({ memberId }) => memberId === userInfo.id)?.reactionId!;
+                  const reactionId = reactors.find(({ memberId }) => memberId === userInfo.id)?.reactionId!;
                   const { name: emojiName } = reactions.find((e) => unicode === e.unicode)!;
 
                   handleReaction({ type, memberId: userInfo.id, reactionId, emojiName });

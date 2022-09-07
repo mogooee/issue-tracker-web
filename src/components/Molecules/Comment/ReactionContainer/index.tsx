@@ -21,7 +21,6 @@ export interface ReactionContainerTypes {
 
 const ReactionContainer = ({ reactions, usedEmojis, issueId, commentId }: ReactionContainerTypes) => {
   const userInfo = useRecoilValue(LoginUserInfoState);
-  const isUsed = usedEmojis?.find(({ reactors }) => reactors.find(({ memberId }) => memberId === userInfo.id));
 
   return (
     <S.ReactionTab>
@@ -41,6 +40,7 @@ const ReactionContainer = ({ reactions, usedEmojis, issueId, commentId }: Reacti
       />
       {usedEmojis.map(({ emoji, reactors }) => {
         const { name } = reactions.find(({ unicode }) => unicode === emoji)!;
+        const isUsed = reactors.find(({ memberId }) => memberId === userInfo.id);
 
         return (
           <S.Reaction key={emoji} nickname={reactors.map(({ nickname }) => nickname)} emoji={name}>

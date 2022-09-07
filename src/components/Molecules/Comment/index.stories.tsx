@@ -26,8 +26,33 @@ NoAuthor.parameters = {
   },
 };
 
+export const NoReaction = Template.bind({});
+NoReaction.args = { ...Author.args, comment };
+NoReaction.parameters = {
+  msw: {
+    handlers: issueHandlers,
+  },
+};
+
 export const HasReaction = Template.bind({});
-HasReaction.args = { ...Author.args, comment };
+HasReaction.args = {
+  ...Author.args,
+  comment: {
+    ...comment,
+    issueCommentReactionsResponse: [
+      ...comment.issueCommentReactionsResponse,
+      {
+        id: 0,
+        emoji: 'U+1F604',
+        issueCommentReactorResponse: {
+          id: 0,
+          nickname: 'dotori',
+        },
+      },
+    ],
+  },
+};
+
 HasReaction.parameters = {
   msw: {
     handlers: issueHandlers,

@@ -35,6 +35,14 @@ export const comment: CommentsTypes = {
         nickname: 'dobby',
       },
     },
+    {
+      id: 4,
+      emoji: 'U+1F389',
+      issueCommentReactorResponse: {
+        id: 4,
+        nickname: 'beck',
+      },
+    },
   ],
 };
 
