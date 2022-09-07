@@ -1,11 +1,12 @@
 import { Route, Routes } from 'react-router-dom';
-import { Home, NotFound, Issues, LabelList, Milestones } from '@/pages';
+import { Home, NotFound, Issues, LabelList, Milestones, NewIssue } from '@/pages';
 
 const PrivateRouter = () => (
   <Routes>
     <Route path="/" element={<Home />}>
       <Route index element={<Issues />} />
       <Route path="/issues" element={<Issues />} />
+      <Route path="/issues/new" element={<NewIssue />} />
       <Route path="/label" element={<LabelList />} />
       <Route path="/milestone" element={<Milestones />} />
     </Route>
