@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-import * as S from '@/components/Molecules/EditMilestone/index.styles';
+import * as S from '@/components/Molecules/MilestoneEditForm/index.styles';
 import Button from '@/components/Atoms/Button';
-import EditInput from '@/components/Molecules/EditMilestone/EditInput';
-import { EDIT_FORM_INFO } from '@/components/Molecules/EditMilestone/constants';
+import EditInput from '@/components/Molecules/MilestoneEditForm/EditInput';
+import { EDIT_FORM_INFO } from '@/components/Molecules/MilestoneEditForm/constants';
 import { BUTTON_PROPS } from '@/pages/Private/Milestones/constants';
 
 import useFetchMilestone from '@/hooks/useFetchMilestone';
@@ -14,7 +14,7 @@ export interface MilestonesFormTypes {
   dueDate: string | null;
 }
 
-interface EditMilestoneType {
+interface MilestoneEditFormType {
   id?: number;
   editMode: 'ADD' | 'MODIFY';
   milestoneInfo?: MilestonesFormTypes;
@@ -27,7 +27,7 @@ const INIT_FORM_STATE = {
   dueDate: '',
 };
 
-const EditMilestone = ({ editMode, milestoneInfo, id, setOpenState }: EditMilestoneType) => {
+const MilestoneEditForm = ({ editMode, milestoneInfo, id, setOpenState }: MilestoneEditFormType) => {
   const { createMilestoneMutate, patchMilestoneDataMutate } = useFetchMilestone();
   const [milestoneForm, setMilestoneForm] = useState<MilestonesFormTypes>(milestoneInfo || INIT_FORM_STATE);
 
@@ -59,7 +59,7 @@ const EditMilestone = ({ editMode, milestoneInfo, id, setOpenState }: EditMilest
   };
 
   return (
-    <S.EditMilestone editMode={editMode}>
+    <S.MilestoneEditForm editMode={editMode}>
       <h2>{editMode === 'ADD' ? '새로운 마일스톤 추가' : '마일스톤 편집'}</h2>
       <S.EditForm>
         {EDIT_FORM_INFO.map((info) => (
@@ -76,8 +76,8 @@ const EditMilestone = ({ editMode, milestoneInfo, id, setOpenState }: EditMilest
         {editMode === 'MODIFY' && <Button {...BUTTON_PROPS.CANCEL} handleOnClick={onClickCancelButton} />}
         <Button {...BUTTON_PROPS.SAVE} disabled={isDisabled()} handleOnClick={onClickSaveButton} />
       </S.EditButtons>
-    </S.EditMilestone>
+    </S.MilestoneEditForm>
   );
 };
 
-export default EditMilestone;
+export default MilestoneEditForm;

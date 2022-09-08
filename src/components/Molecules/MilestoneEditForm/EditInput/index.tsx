@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import * as S from '@/components/Molecules/EditMilestone/EditInput/index.styles';
+import * as S from '@/components/Molecules/MilestoneEditForm/EditInput/index.styles';
 import Input from '@/components/Atoms/Input';
-import { MilestonesFormTypes } from '@/components/Molecules/EditMilestone/';
+import { MilestonesFormTypes } from '@/components/Molecules/MilestoneEditForm/';
 
 import useInput from '@/hooks/useInput';
 import debounce from '@/utils/debounce';

@@ -7,7 +7,7 @@ import * as S from '@/components/Organisms/MilestoneTable/MilestoneItem/index.st
 import Button from '@/components/Atoms/Button';
 import Icon from '@/components/Atoms/Icon';
 import PrograssBar from '@/components/Atoms/ProgressBar';
-import EditMilestone from '@/components/Molecules/EditMilestone';
+import MilestoneEditForm from '@/components/Molecules/MilestoneEditForm';
 import { MILESTONE_BUTTON_INFO } from '@/components/Organisms/MilestoneTable/MilestoneItem/constants';
 import { COLORS } from '@/styles/theme';
 import useFetchMilestone from '@/hooks/useFetchMilestone';
@@ -55,7 +55,7 @@ const MilestoneItem = (props: MilestoneTypes) => {
         </div>
       </S.MilestoneItem>
       {isOpenModifyEditer && (
-        <EditMilestone
+        <MilestoneEditForm
           editMode="MODIFY"
           id={id}
           milestoneInfo={{ title, description, dueDate }}

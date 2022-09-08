@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const EditMilestone = styled.div<{ editMode: 'ADD' | 'MODIFY' }>`
+export const MilestoneEditForm = styled.div<{ editMode: 'ADD' | 'MODIFY' }>`
   width: 100%;
   padding: 32px;
   background: ${({ theme }) => theme.COLORS.OFF_WHITE};

@@ -1,5 +1,5 @@
 import axios, { AxiosError } from 'axios';
-import { MilestonesFormTypes } from '@/components/Molecules/EditMilestone';
+import { MilestonesFormTypes } from '@/components/Molecules/MilestoneEditForm';
 import { MilestoneListTypes } from '@/components/Organisms/MilestoneTable';
 
 export const getMilestoneData = async () => {

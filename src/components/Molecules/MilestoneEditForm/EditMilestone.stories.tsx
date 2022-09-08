@@ -1,13 +1,13 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import EditMilestone from '@/components/Molecules/EditMilestone';
+import MilestoneEditForm from '@/components/Molecules/MilestoneEditForm';
 import { milestoneHandlers } from '@/mocks/handlers/milestones';
 
 export default {
-  title: 'Molecules/EditMilestone',
-  component: EditMilestone,
-} as ComponentMeta<typeof EditMilestone>;
+  title: 'Molecules/MilestoneEditForm',
+  component: MilestoneEditForm,
+} as ComponentMeta<typeof MilestoneEditForm>;
 
-const Template: ComponentStory<typeof EditMilestone> = (args) => <EditMilestone {...args} />;
+const Template: ComponentStory<typeof MilestoneEditForm> = (args) => <MilestoneEditForm {...args} />;
 
 export const ADD = Template.bind({});
 ADD.args = {

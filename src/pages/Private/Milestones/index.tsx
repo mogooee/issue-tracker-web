@@ -4,7 +4,7 @@ import { LoginUserInfoState } from '@/stores/loginUserInfo';
 
 import styled from 'styled-components';
 import Button from '@/components/Atoms/Button';
-import EditMilestone from '@/components/Molecules/EditMilestone';
+import MilestoneEditForm from '@/components/Molecules/MilestoneEditForm';
 import NavLink from '@/components/Molecules/NavLink';
 import Header from '@/components/Organisms/Header';
 import { StyledNavLink } from '@/components/Molecules/NavLink/index.styles';
@@ -42,7 +42,7 @@ const Milestones = () => {
         <NavLink navData={NAV_DATA} navLinkStyle="LINE" />
         <Button {...(!isOpenAddEdit ? BUTTON_PROPS.ADD : BUTTON_PROPS.CLOSE)} handleOnClick={openAddEdit} />
       </NavContainer>
-      {isOpenAddEdit && <EditMilestone editMode="ADD" setOpenState={setIsOpenAddEdit} />}
+      {isOpenAddEdit && <MilestoneEditForm editMode="ADD" setOpenState={setIsOpenAddEdit} />}
       <FallBackMilestoneTable />
     </div>
   );
