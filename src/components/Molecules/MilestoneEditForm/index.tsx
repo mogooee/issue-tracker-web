@@ -7,17 +7,12 @@ import { EDIT_FORM_INFO } from '@/components/Molecules/MilestoneEditForm/constan
 import { BUTTON_PROPS } from '@/pages/Private/Milestones/constants';
 
 import useFetchMilestone from '@/hooks/useFetchMilestone';
-
-export interface MilestonesFormTypes {
-  title: string;
-  description: string | null;
-  dueDate: string | null;
-}
+import { RequestMilestoneTypes } from '@/api/milestone';
 
 interface MilestoneEditFormType {
   id?: number;
   editMode: 'ADD' | 'MODIFY';
-  milestoneInfo?: MilestonesFormTypes;
+  milestoneInfo?: RequestMilestoneTypes;
   setOpenState: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -29,7 +24,7 @@ const INIT_FORM_STATE = {
 
 const MilestoneEditForm = ({ editMode, milestoneInfo, id, setOpenState }: MilestoneEditFormType) => {
   const { createMilestoneMutate, patchMilestoneDataMutate } = useFetchMilestone();
-  const [milestoneForm, setMilestoneForm] = useState<MilestonesFormTypes>(milestoneInfo || INIT_FORM_STATE);
+  const [milestoneForm, setMilestoneForm] = useState<RequestMilestoneTypes>(milestoneInfo || INIT_FORM_STATE);
 
   const isDisabled = () => {
     if (editMode === 'ADD') {

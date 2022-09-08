@@ -22,10 +22,7 @@ import ErrorTable from '@/components/Organisms/ErrorTable';
 import useFetchMilestone from '@/hooks/useFetchMilestone';
 import { COLORS } from '@/styles/theme';
 
-export interface MilestoneListTypes {
-  closedMilestones: MilestoneTypes[];
-  openedMilestones: MilestoneTypes[];
-}
+import { MilestoneListTypes } from '@/api/milestone';
 
 const MILESTONE_STATE_TAB = (data: MilestoneListTypes) => [
   {

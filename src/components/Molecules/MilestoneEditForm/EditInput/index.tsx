@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import * as S from '@/components/Molecules/MilestoneEditForm/EditInput/index.styles';
 import Input from '@/components/Atoms/Input';
-import { MilestonesFormTypes } from '@/components/Molecules/MilestoneEditForm/';
 
 import useInput from '@/hooks/useInput';
 import debounce from '@/utils/debounce';
+import { RequestMilestoneTypes } from '@/api/milestone';
 
 export interface EditInputTypes {
   label: string;
@@ -16,8 +16,8 @@ export interface EditInputTypes {
 }
 
 interface EditInputStateTypes {
-  state: MilestonesFormTypes;
-  setState: React.Dispatch<React.SetStateAction<MilestonesFormTypes>>;
+  state: RequestMilestoneTypes;
+  setState: React.Dispatch<React.SetStateAction<RequestMilestoneTypes>>;
 }
 
 const EditInput = ({ ...props }: EditInputTypes & EditInputStateTypes) => {

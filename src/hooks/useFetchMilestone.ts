@@ -5,8 +5,8 @@ import {
   patchMilestoneData,
   patchMilestoneState,
   deleteMilestone,
+  MilestoneListTypes,
 } from '@/api/milestone';
-import { MilestoneListTypes } from '@/components/Organisms/MilestoneTable';
 
 const useFetchMilestone = () => {
   const queryClient = useQueryClient();

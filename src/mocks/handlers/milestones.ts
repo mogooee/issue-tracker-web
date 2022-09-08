@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { rest } from 'msw';
-import { MilestoneListTypes } from '@/components/Organisms/MilestoneTable';
 import { MilestoneTypes } from '@/api/issue/types';
+import { MilestoneListTypes } from '@/api/milestone';
 
 const tokenErrorMessage = { message: '토큰이 유효하지 않습니다.' };
 
