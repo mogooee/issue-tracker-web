@@ -1,5 +1,3 @@
-import { useRecoilValue } from 'recoil';
-import { LoginUserInfoState } from '@/stores/loginUserInfo';
 import { useSearchParams } from 'react-router-dom';
 
 import styled from 'styled-components';
@@ -12,8 +10,6 @@ import FilterBar from '@/components/Molecules/FilterBar';
 import { FILTERBAR_INFO } from '@/components/Molecules/FilterBar/mocks';
 import { FILTER_TABS_INFO as FILTER_TABS } from '@/components/Molecules/Dropdown/mock';
 import NavLink from '@/components/Molecules/NavLink';
-
-import Header from '@/components/Organisms/Header';
 import IssueTable from '@/components/Organisms/IssueTable';
 
 import useFetchIssue from '@/api/issue/useFetchIssue';
@@ -33,7 +29,6 @@ const SubNav = styled.div`
 
 const Issues = () => {
   const { issues } = useFetchIssue();
-  const LoginUserInfoStateValue = useRecoilValue(LoginUserInfoState);
 
   const [searchParams] = useSearchParams();
 
@@ -52,8 +47,7 @@ const Issues = () => {
   const issueState = definedIssueState();
 
   return (
-    <div>
-      <Header user={LoginUserInfoStateValue} />
+    <>
       <DivContainer>
         <FilterBar {...FILTERBAR_INFO} />
         <SubNav>
@@ -77,7 +71,7 @@ const Issues = () => {
         </SubNav>
       </DivContainer>
       <IssueTable issues={issues!} filterTabs={FILTER_TABS} issueState={issueState} />
-    </div>
+    </>
   );
 };
 
