@@ -14,12 +14,6 @@ module.exports = merge(common, {
           options: { compilerOptions: { noEmit: false } },
         },
       },
-      {
-        test: /\.m?js$/,
-        resolve: {
-          fullySpecified: false,
-        },
-      },
     ],
   },
   devServer: {
