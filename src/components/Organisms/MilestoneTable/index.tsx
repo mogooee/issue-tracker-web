@@ -12,8 +12,8 @@ import DeleteMilestoneModal from '@/components/Modal/DeleteMilestone';
 import Icon from '@/components/Atoms/Icon';
 import NavLink from '@/components/Molecules/NavLink';
 import Table from '@/components/Molecules/Table';
-import MilestoneItem from '@/components/Molecules/MilestoneItem';
-import EmptyMilestoneItem from '@/components/Molecules/MilestoneItem/EmptyItem';
+import MilestoneItem from '@/components/Organisms/MilestoneTable/MilestoneItem';
+import EmptyMilestoneItem from '@/components/Organisms/MilestoneTable/MilestoneItem/EmptyItem';
 import { MilestoneTypes } from '@/types/issue';
 
 import SkeletonMilestoneTable from '@/components/Skeleton/MilestoneTable';

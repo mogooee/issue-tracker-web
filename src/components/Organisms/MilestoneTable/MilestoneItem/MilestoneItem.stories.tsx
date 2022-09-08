@@ -1,9 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import MilestoneItem from '@/components/Molecules/MilestoneItem';
+import MilestoneItem from '@/components/Organisms/MilestoneTable/MilestoneItem';
 import { milestoneHandlers } from '@/mocks/handlers/milestones';
 
 export default {
-  title: 'Molecules/MilestoneItem',
+  title: 'Organisms/MilestoneTable/MilestoneItem',
   component: MilestoneItem,
 } as ComponentMeta<typeof MilestoneItem>;
 

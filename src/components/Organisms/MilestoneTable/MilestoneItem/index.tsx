@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import { ModalState } from '@/components/Modal';
 
-import * as S from '@/components/Molecules/MilestoneItem/index.styles';
+import * as S from '@/components/Organisms/MilestoneTable/MilestoneItem/index.styles';
 import Button from '@/components/Atoms/Button';
 import Icon from '@/components/Atoms/Icon';
 import PrograssBar from '@/components/Atoms/ProgressBar';
 import EditMilestone from '@/components/Molecules/EditMilestone';
-import { MILESTONE_BUTTON_INFO } from '@/components/Molecules/MilestoneItem/constants';
+import { MILESTONE_BUTTON_INFO } from '@/components/Organisms/MilestoneTable/MilestoneItem/constants';
 import { COLORS } from '@/styles/theme';
 import useFetchMilestone from '@/hooks/useFetchMilestone';
 import { ClickMilestoneState } from '@/stores/milestone';
