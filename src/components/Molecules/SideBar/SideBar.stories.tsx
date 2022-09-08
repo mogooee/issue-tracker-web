@@ -2,13 +2,13 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import SideBar from '@/components/Molecules/SideBar';
 import { SideBarItemType } from '@/components/Molecules/SideBar/types';
 
-import { milestoneHandlers } from '@/mocks/handlers/milestones';
+import { milestoneHandlers } from '@/mocks/handlers/milestone';
 import { labelHandlers } from '@/mocks/handlers/label';
 import { authHandlers } from '@/mocks/handlers/auth';
 
 import { DEFAULT_CONTENT_LIST, MOCK_CONTENT_LIST, SIDEBAR_PROPS } from '@/components/Molecules/SideBar/mock';
 
-import useFetchSideBarData from '@/hooks/useFetchSideBarData';
+import useFetchSideBarData from '@/api/useFetchSideBarData';
 
 export default {
   title: 'Molecules/SideBar',

@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import MilestoneItem from '@/components/Organisms/MilestoneTable/MilestoneItem';
-import { milestoneHandlers } from '@/mocks/handlers/milestones';
+import { milestoneHandlers } from '@/mocks/handlers/milestone';
 
 export default {
   title: 'Organisms/MilestoneTable/MilestoneItem',

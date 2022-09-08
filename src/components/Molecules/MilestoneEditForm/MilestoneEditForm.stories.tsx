@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import MilestoneEditForm from '@/components/Molecules/MilestoneEditForm';
-import { milestoneHandlers } from '@/mocks/handlers/milestones';
+import { milestoneHandlers } from '@/mocks/handlers/milestone';
 
 export default {
   title: 'Molecules/MilestoneEditForm',
