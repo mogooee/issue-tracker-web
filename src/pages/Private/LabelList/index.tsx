@@ -5,7 +5,7 @@ import * as S from '@/pages/Private/LabelList/index.styled';
 import { COLORS } from '@/styles/theme';
 
 import Button from '@/components/Atoms/Button';
-import AddLabelField from '@/components/Molecules/AddLabelField';
+import LabelEditForm from '@/components/Molecules/LabelEditForm';
 import NavLink from '@/components/Molecules/NavLink';
 import Header from '@/components/Organisms/Header';
 import { FallbackLabelTable } from '@/components/Organisms/LabelTable';
@@ -66,7 +66,7 @@ const LabelList = () => {
           />
         )}
       </S.SubNav>
-      {labelState.type === 'ADD' && <AddLabelField type="ADD" onClickCompleteButton={handleCompleteButtonClick} />}
+      {labelState.type === 'ADD' && <LabelEditForm type="ADD" onClickCompleteButton={handleCompleteButtonClick} />}
       <FallbackLabelTable />
     </S.LabelList>
   );

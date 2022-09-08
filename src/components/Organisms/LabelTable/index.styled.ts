@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { AddLabelField } from '@/components/Molecules/AddLabelField/index.styled';
+import { LabelEditForm } from '@/components/Molecules/LabelEditForm/index.styled';
 
 export const LabelTable = styled.div`
-  ${AddLabelField} {
+  ${LabelEditForm} {
     border: none;
   }
 `;

@@ -7,7 +7,7 @@ import * as S from '@/components/Organisms/LabelTable/index.styled';
 
 import Table from '@/components/Molecules/Table';
 import TableItem from '@/components/Molecules/Table/TableItem';
-import AddLabelField from '@/components/Molecules/AddLabelField';
+import AddLabelField from '@/components/Molecules/LabelEditForm';
 
 import { LabelState } from '@/stores/labelList';
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const AddLabelField = styled.div`
+export const LabelEditForm = styled.div`
   width: 1280px;
   height: 345px;
   background: ${({ theme }) => theme.COLORS.OFF_WHITE};

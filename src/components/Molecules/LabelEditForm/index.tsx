@@ -3,7 +3,6 @@ import React, { useRef } from 'react';
 import { useRecoilState } from 'recoil';
 
 import { COLORS } from '@/styles/theme';
-import * as S from '@/components/Molecules/AddLabelField/index.styled';
 
 import Button from '@/components/Atoms/Button';
 import Input from '@/components/Atoms/Input';
@@ -15,6 +14,7 @@ import { LabelState } from '@/stores/labelList';
 
 import useInput from '@/hooks/useInput';
 import debounce from '@/utils/debounce';
+import * as S from '@/components/Molecules/LabelEditForm/index.styled';
 
 interface LabelAddFormTypes {
   type: 'ADD' | 'EDIT';
@@ -25,7 +25,7 @@ interface LabelAddFormTypes {
 const [MAX_TITLE_LENTH, MAX_DESCRIPTION_LENGTH] = [30, 100];
 const DEBOUNCE_DELAY = 200;
 
-const AddLabelField = ({ type, onClickCancleButton, onClickCompleteButton }: LabelAddFormTypes) => {
+const LabelEditForm = ({ type, onClickCancleButton, onClickCompleteButton }: LabelAddFormTypes) => {
   const timerId = useRef(0);
   const { isTyping: IsTitleTyping, onChangeInput: onChangeTitleInput } = useInput();
   const { isTyping: IsDescriptionTyping, onChangeInput: onChangeDescriptionInput } = useInput();
@@ -56,7 +56,7 @@ const AddLabelField = ({ type, onClickCancleButton, onClickCompleteButton }: Lab
   const isCompleteButtonActivated = labelState.label.title;
 
   return (
-    <S.AddLabelField>
+    <S.LabelEditForm>
       <S.Title>{formTitle}</S.Title>
       <S.EditField>
         <Label
@@ -125,8 +125,8 @@ const AddLabelField = ({ type, onClickCancleButton, onClickCompleteButton }: Lab
           disabled={!isCompleteButtonActivated}
         />
       </S.EditButton>
-    </S.AddLabelField>
+    </S.LabelEditForm>
   );
 };
 
-export default AddLabelField;
+export default LabelEditForm;
