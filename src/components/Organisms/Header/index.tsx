@@ -6,7 +6,7 @@ import * as S from '@/components/Organisms/Header/index.styles';
 import Icon from '@/components/Atoms/Icon';
 import Logo from '@/components/Atoms/Logo';
 import UserImage from '@/components/Atoms/UserImage';
-import { UserTypes } from '@/types/issue';
+import { UserTypes } from '@/api/issue/types';
 
 interface HeaderTypes {
   user: UserTypes;

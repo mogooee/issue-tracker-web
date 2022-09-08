@@ -4,7 +4,7 @@ import { LoginUserInfoState } from '@/stores/loginUserInfo';
 import useOnceQuery from '@/hooks/useOnceQuery';
 import OAuthState from '@/stores/auth';
 import { getUserInfo, silentRefresh } from '@/api/sign';
-import { UserTypes } from '@/types/issue';
+import { UserTypes } from '@/api/issue/types';
 
 const useLogin = () => {
   const [loginUserInfo, setLoginUserInfo] = useRecoilState(LoginUserInfoState);

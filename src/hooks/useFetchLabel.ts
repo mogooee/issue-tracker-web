@@ -1,5 +1,5 @@
 import { addLabelData, getLabelData, patchLabelData, deleteLabelData } from '@/api/labelList';
-import { LabelTypes } from '@/types/issue';
+import { LabelTypes } from '@/api/issue/types';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 const useFetchLabel = () => {

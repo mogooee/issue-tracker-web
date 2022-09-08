@@ -14,7 +14,7 @@ import NavLink from '@/components/Molecules/NavLink';
 import Table from '@/components/Molecules/Table';
 import MilestoneItem from '@/components/Organisms/MilestoneTable/MilestoneItem';
 import EmptyMilestoneItem from '@/components/Organisms/MilestoneTable/MilestoneItem/EmptyItem';
-import { MilestoneTypes } from '@/types/issue';
+import { MilestoneTypes } from '@/api/issue/types';
 
 import SkeletonMilestoneTable from '@/components/Skeleton/MilestoneTable';
 import ErrorTable from '@/components/Organisms/ErrorTable';

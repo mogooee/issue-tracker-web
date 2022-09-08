@@ -1,5 +1,5 @@
 import axios, { AxiosError } from 'axios';
-import { IssuesTypes } from '@/types/issue';
+import { IssuesTypes } from '@/api/issue/types';
 
 export const getIssuesData = async (): Promise<IssuesTypes> => {
   try {

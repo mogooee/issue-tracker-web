@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from '@/components/Atoms/UserImage/index.styles';
-import { UserTypes } from '@/types/issue';
+import { UserTypes } from '@/api/issue/types';
 
 type AtomUserImage = { imgSize?: 'MEDIUM' | 'SMALL' };
 

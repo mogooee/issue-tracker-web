@@ -8,7 +8,7 @@ import Label from '@/components/Atoms/Label';
 import HeaderInline from '@/components/Organisms/IssueHeader/HeaderInline';
 
 import calcTimeForToday from '@/utils/calcForTimeToday';
-import { ContentTypes } from '@/types/issue';
+import { ContentTypes } from '@/api/issue/types';
 
 type IssueHeaderTypes = Pick<ContentTypes, 'id' | 'title' | 'closed' | 'createdAt' | 'author'> & {
   commentNum: number;

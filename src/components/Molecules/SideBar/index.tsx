@@ -10,7 +10,7 @@ import {
   ContentListTypes,
 } from '@/components/Molecules/SideBar/types';
 
-import { LabelTypes, UserTypes, MilestoneTypes } from '@/types/issue';
+import { LabelTypes, UserTypes, MilestoneTypes } from '@/api/issue/types';
 
 const SideBar = ({ ...props }: SideBarTypes) => {
   const { content, sideBarList } = props;

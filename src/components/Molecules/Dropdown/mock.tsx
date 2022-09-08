@@ -2,7 +2,7 @@ import Icon from '@/components/Atoms/Icon';
 import { IssueTypes, DropdownTypes, ListPanelTypes, ReactionPanelTypes } from '@/components/Molecules/Dropdown/types';
 import { COLORS } from '@/styles/theme';
 import { REACTIONS } from '@/components/Molecules/Dropdown/Panel/Reaction/mock';
-import { LabelTypes, MilestoneTypes, UserTypes } from '@/types/issue';
+import { LabelTypes, MilestoneTypes, UserTypes } from '@/api/issue/types';
 
 export const UNUSED_OPTIONS = {
   ASSIGNEE: {

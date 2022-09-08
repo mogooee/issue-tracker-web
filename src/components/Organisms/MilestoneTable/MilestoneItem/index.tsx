@@ -12,7 +12,7 @@ import { MILESTONE_BUTTON_INFO } from '@/components/Organisms/MilestoneTable/Mil
 import { COLORS } from '@/styles/theme';
 import useFetchMilestone from '@/hooks/useFetchMilestone';
 import { ClickMilestoneState } from '@/stores/milestone';
-import { MilestoneTypes } from '@/types/issue';
+import { MilestoneTypes } from '@/api/issue/types';
 
 const MilestoneItem = (props: MilestoneTypes) => {
   const { patchMilestoneStateMutate } = useFetchMilestone();

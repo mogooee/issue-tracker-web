@@ -5,7 +5,7 @@ import ReactionContainer from '@/components/Molecules/Comment/ReactionContainer'
 import HeaderTab from '@/components/Molecules/Comment/HeaderTab';
 
 import calcTimeForToday from '@/utils/calcForTimeToday';
-import { CommentsTypes, ReactionResponseTypes } from '@/types/issue';
+import { CommentsTypes, ReactionResponseTypes } from '@/api/issue/types';
 import useFetchReaction from '@/hooks/useFetchReaction';
 
 interface CommentTypes {

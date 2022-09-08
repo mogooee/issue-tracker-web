@@ -1,4 +1,4 @@
-import { LabelTypes } from '@/types/issue';
+import { LabelTypes } from '@/api/issue/types';
 import { COLORS } from '@/styles/theme';
 import { atom } from 'recoil';
 

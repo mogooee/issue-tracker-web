@@ -1,4 +1,4 @@
-import { MilestoneTypes } from '@/types/issue';
+import { MilestoneTypes } from '@/api/issue/types';
 import { atom } from 'recoil';
 
 const InitMilestone: MilestoneTypes = {

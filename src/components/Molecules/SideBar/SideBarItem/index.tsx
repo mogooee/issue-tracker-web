@@ -14,7 +14,7 @@ import {
   SideBarItemType,
 } from '@/components/Molecules/SideBar/types';
 
-import { LabelTypes, UserTypes, MilestoneTypes } from '@/types/issue';
+import { LabelTypes, UserTypes, MilestoneTypes } from '@/api/issue/types';
 
 const SideBarItem = ({ ...props }: SideBarItemType & ContentItemTypes) => {
   const { id, dropdownTitle, dropdownListTitle, dropdownList, dropdownType, content, handleOnChange } = props;

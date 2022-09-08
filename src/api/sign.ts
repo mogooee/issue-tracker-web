@@ -1,4 +1,4 @@
-import { UserTypes } from '@/types/issue';
+import { UserTypes } from '@/api/issue/types';
 import axios, { AxiosError } from 'axios';
 
 export interface SigninTypes {

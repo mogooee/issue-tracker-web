@@ -1,4 +1,4 @@
-import { IssuesTypes, ContentTypes, CommentsTypes } from '@/types/issue';
+import { IssuesTypes, ContentTypes, CommentsTypes } from '@/api/issue/types';
 
 export const comment: CommentsTypes = {
   id: 1,

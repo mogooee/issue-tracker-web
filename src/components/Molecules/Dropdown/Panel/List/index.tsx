@@ -3,7 +3,7 @@ import React from 'react';
 import PanelPreviewLabel from '@/components/Molecules/Dropdown/Panel/Label';
 
 import { ListPanelTypes, IssueTypes } from '@/components/Molecules/Dropdown/types';
-import { UserTypes, MilestoneTypes, LabelTypes } from '@/types/issue';
+import { UserTypes, MilestoneTypes, LabelTypes } from '@/api/issue/types';
 import * as S from '@/components/Molecules/Dropdown/Panel/List/index.styles';
 
 const ListPanel = ({ ...props }: ListPanelTypes) => {

@@ -12,7 +12,7 @@ import UserImage from '@/components/Atoms/UserImage';
 
 import { CheckState } from '@/stores/checkBox';
 import calcTimeForToday from '@/utils/calcForTimeToday';
-import { ContentTypes } from '@/types/issue';
+import { ContentTypes } from '@/api/issue/types';
 
 const IssueItem = (issueInfo: ContentTypes) => {
   const { id, title, closed, issueLabels, author, issueAssignees, createdAt, milestone } = issueInfo;

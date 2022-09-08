@@ -1,5 +1,5 @@
 import { atom } from 'recoil';
-import { UserTypes } from '@/types/issue';
+import { UserTypes } from '@/api/issue/types';
 
 export const LoginUserInfoState = atom<UserTypes>({
   key: 'LoginUserInfoState',

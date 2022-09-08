@@ -7,7 +7,7 @@ import Button from '@/components/Atoms/Button';
 import Input from '@/components/Atoms/Input';
 import * as S from '@/components/Organisms/IssueHeader/HeaderInline/index.styled';
 
-import { ContentTypes } from '@/types/issue';
+import { ContentTypes } from '@/api/issue/types';
 
 const MAX_ISSUE_TITLE_NUM = 255;
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Indicator } from '@/components/Molecules/Dropdown/Indicator/index.styles';
-import { ReactionResponseTypes } from '@/types/issue';
+import { ReactionResponseTypes } from '@/api/issue/types';
 
 type ReactionType = Pick<ReactionResponseTypes, 'emoji'> & { nickname: string[] };
 

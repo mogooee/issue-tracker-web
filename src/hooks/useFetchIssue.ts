@@ -1,5 +1,5 @@
 import { getIssuesData } from '@/api/issue';
-import { IssuesTypes } from '@/types/issue';
+import { IssuesTypes } from '@/api/issue/types';
 
 import { useQuery } from '@tanstack/react-query';
 

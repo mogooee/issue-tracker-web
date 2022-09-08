@@ -2,7 +2,7 @@
 import { rest } from 'msw';
 import { RedirectAuthTypes } from '@/api/sign';
 import { USER_LIST } from '@/components/Molecules/Dropdown/mock';
-import { UserTypes } from '@/types/issue';
+import { UserTypes } from '@/api/issue/types';
 
 const userTable: UserTypes[] = [
   {

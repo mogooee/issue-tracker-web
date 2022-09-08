@@ -1,9 +1,9 @@
-import { UserTypes, MilestoneTypes, LabelTypes } from '@/types/issue';
+import { UserTypes, MilestoneTypes, LabelTypes } from '@/api/issue/types';
 
 import React from 'react';
 import * as panels from '@/components/Molecules/Dropdown/Panel/panels';
 import { UsedEmojisTypes } from '@/components/Molecules/Comment';
-import { ReactionTypes } from '@/types/reaction';
+import { ReactionTypes } from '@/api/reaction';
 
 // Indicator Types
 

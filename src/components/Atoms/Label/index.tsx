@@ -3,7 +3,7 @@ import React from 'react';
 import * as S from '@/components/Atoms/Label/index.styles';
 import { COLORS } from '@/styles/theme';
 
-import { LabelTypes } from '@/types/issue';
+import { LabelTypes } from '@/api/issue/types';
 
 type AtomLabelType = {
   labelStyle?: 'LIGHT' | 'DARK';

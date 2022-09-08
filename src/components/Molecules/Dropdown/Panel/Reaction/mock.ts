@@ -1,4 +1,4 @@
-import { ReactionTypes } from '@/types/reaction';
+import { ReactionTypes } from '@/api/reaction';
 
 export const REACTIONS: ReactionTypes[] = [
   {

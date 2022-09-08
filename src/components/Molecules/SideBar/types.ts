@@ -1,4 +1,4 @@
-import { LabelTypes, UserTypes, MilestoneTypes } from '@/types/issue';
+import { LabelTypes, UserTypes, MilestoneTypes } from '@/api/issue/types';
 
 export interface ContentListTypes {
   assignee: UserTypes[];
