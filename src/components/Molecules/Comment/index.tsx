@@ -6,7 +6,7 @@ import HeaderTab from '@/components/Molecules/Comment/HeaderTab';
 
 import calcTimeForToday from '@/utils/calcForTimeToday';
 import { CommentsTypes, ReactionResponseTypes } from '@/api/issue/types';
-import useFetchReaction from '@/hooks/useFetchReaction';
+import useFetchReaction from '@/api/issue/useFetchReaction';
 
 interface CommentTypes {
   issueId: number;

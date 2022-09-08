@@ -6,7 +6,7 @@ import EditInput from '@/components/Molecules/MilestoneEditForm/EditInput';
 import { EDIT_FORM_INFO } from '@/components/Molecules/MilestoneEditForm/constants';
 import { BUTTON_PROPS } from '@/components/Atoms/Button/options';
 
-import useFetchMilestone from '@/hooks/useFetchMilestone';
+import useFetchMilestone from '@/api/milestone/useFetchMilestone';
 import { RequestMilestoneTypes } from '@/api/milestone';
 
 interface MilestoneEditFormType {

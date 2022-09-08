@@ -1,7 +1,6 @@
-import { getMemberList } from '@/api/members';
 import { useQuery } from '@tanstack/react-query';
-
-import { getLabelData } from '@/api/labelList';
+import { getMemberList } from '@/api/sign/members';
+import { getLabelData } from '@/api/label';
 import { getMilestoneData } from '@/api/milestone';
 
 const useFetchSideBarData = () => {

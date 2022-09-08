@@ -1,11 +1,11 @@
-import { addLabelData, getLabelData, patchLabelData, deleteLabelData } from '@/api/labelList';
+import { addLabelData, getLabelData, patchLabelData, deleteLabelData } from '@/api/label';
 import { LabelTypes } from '@/api/issue/types';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 const useFetchLabel = () => {
   const queryClient = useQueryClient();
 
-  const useGetLabel = () => useQuery<LabelTypes[]>(['labels'], getLabelData);
+  const { data: labelData } = useQuery<LabelTypes[]>(['labels'], getLabelData);
 
   const { mutate: addLabel } = useMutation(addLabelData, {
     onSuccess: () => {
@@ -26,7 +26,7 @@ const useFetchLabel = () => {
   });
 
   return {
-    useGetLabel,
+    labelData,
     addLabel,
     replaceLabel,
     deleteLabel,

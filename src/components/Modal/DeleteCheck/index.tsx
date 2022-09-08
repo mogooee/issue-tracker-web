@@ -3,7 +3,7 @@ import { useSetRecoilState } from 'recoil';
 import Button from '@/components/Atoms/Button';
 import { ModalState } from '@/components/Modal';
 import styled from 'styled-components';
-import useFetchLabel from '@/hooks/useFetchLabel';
+import useFetchLabel from '@/api/label/useFetchLabel';
 
 const Title = styled.h1`
   ${({ theme }) => theme.FONTSTYLES.TEXT_LARGE};

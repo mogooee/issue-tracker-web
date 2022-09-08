@@ -19,7 +19,7 @@ import { MilestoneTypes } from '@/api/issue/types';
 import SkeletonMilestoneTable from '@/components/Skeleton/MilestoneTable';
 import ErrorTable from '@/components/Organisms/ErrorTable';
 
-import useFetchMilestone from '@/hooks/useFetchMilestone';
+import useFetchMilestone from '@/api/milestone/useFetchMilestone';
 import { COLORS } from '@/styles/theme';
 
 import { MilestoneListTypes } from '@/api/milestone';

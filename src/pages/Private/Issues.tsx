@@ -16,7 +16,7 @@ import NavLink from '@/components/Molecules/NavLink';
 import Header from '@/components/Organisms/Header';
 import IssueTable from '@/components/Organisms/IssueTable';
 
-import useFetchIssue from '@/hooks/useFetchIssue';
+import useFetchIssue from '@/api/issue/useFetchIssue';
 
 const DivContainer = styled.div`
   ${({ theme }) => theme.MIXIN.FLEX({ align: 'center', justify: 'space-between' })};

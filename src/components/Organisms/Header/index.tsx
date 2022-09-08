@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useLogout from '@/hooks/useLogout';
+import useLogout from '@/api/sign/useLogout';
 
 import * as S from '@/components/Organisms/Header/index.styles';
 import Icon from '@/components/Atoms/Icon';

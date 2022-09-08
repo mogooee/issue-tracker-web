@@ -9,7 +9,7 @@ import Button from '@/components/Atoms/Button';
 import Input, { InputTypes } from '@/components/Atoms/Input';
 import SignUpInput from '@/components/Molecules/SignUpInput';
 
-import useLogin from '@/hooks/useLogin';
+import useLogin from '@/api/sign/useLogin';
 
 const FORM_INFO = {
   id: 'nickname',

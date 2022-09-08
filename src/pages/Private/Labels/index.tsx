@@ -1,5 +1,5 @@
 import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
-import useFetchLabel from '@/hooks/useFetchLabel';
+import useFetchLabel from '@/api/label/useFetchLabel';
 
 import * as S from '@/pages/Private/Labels/index.styled';
 import { COLORS } from '@/styles/theme';

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { signin, OAuthResponse } from '@/api/sign';
 import useInput from '@/hooks/useInput';
-import useLogin from '@/hooks/useLogin';
+import useLogin from '@/api/sign/useLogin';
 
 import styled from 'styled-components';
 import Button from '@/components/Atoms/Button';

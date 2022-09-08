@@ -10,7 +10,7 @@ import PrograssBar from '@/components/Atoms/ProgressBar';
 import MilestoneEditForm from '@/components/Molecules/MilestoneEditForm';
 import { TABLE_ITEM_BUTTON_INFO } from '@/components/Atoms/Button/options';
 import { COLORS } from '@/styles/theme';
-import useFetchMilestone from '@/hooks/useFetchMilestone';
+import useFetchMilestone from '@/api/milestone/useFetchMilestone';
 import { ClickMilestoneState } from '@/stores/milestone';
 import { MilestoneTypes } from '@/api/issue/types';
 
