@@ -29,6 +29,7 @@ WithIcon.args = {
 export const LINE = Template.bind({});
 LINE.args = {
   navData: [
+    { icon: <Icon icon="Tag" stroke={COLORS.TITLE_ACTIVE} />, title: '레이블 (3)', link: '/labels' },
     { icon: <Icon icon="Milestone" fill={COLORS.TITLE_ACTIVE} />, title: '마일스톤 (2)', link: '/milestones' },
   ],
   navLinkStyle: 'LINE',

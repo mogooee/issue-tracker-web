@@ -9,7 +9,7 @@ import Table from '@/components/Molecules/Table';
 import TableItem from '@/components/Molecules/Table/TableItem';
 import AddLabelField from '@/components/Molecules/LabelEditForm';
 
-import { LabelState } from '@/stores/labelList';
+import { LabelState } from '@/stores/label';
 
 import useFetchLabel from '@/hooks/useFetchLabel';
 import Modal, { ModalState } from '@/components/Modal';

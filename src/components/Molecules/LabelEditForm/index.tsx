@@ -10,7 +10,7 @@ import Label from '@/components/Atoms/Label';
 import Radio from '@/components/Atoms/Radio';
 import ColorCode from '@/components/Atoms/ColorCode';
 
-import { LabelState } from '@/stores/labelList';
+import { LabelState } from '@/stores/label';
 
 import useInput from '@/hooks/useInput';
 import debounce from '@/utils/debounce';

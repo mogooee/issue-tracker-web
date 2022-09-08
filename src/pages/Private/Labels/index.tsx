@@ -1,7 +1,7 @@
 import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
 import useFetchLabel from '@/hooks/useFetchLabel';
 
-import * as S from '@/pages/Private/LabelList/index.styled';
+import * as S from '@/pages/Private/Labels/index.styled';
 import { COLORS } from '@/styles/theme';
 
 import Button from '@/components/Atoms/Button';
@@ -11,10 +11,10 @@ import Header from '@/components/Organisms/Header';
 import { FallbackLabelTable } from '@/components/Organisms/LabelTable';
 
 import { LoginUserInfoState } from '@/stores/loginUserInfo';
-import { LabelState } from '@/stores/labelList';
 import { labelMilestone } from '@/components/Molecules/NavLink/option';
+import { LabelState } from '@/stores/label';
 
-const LabelList = () => {
+const Labels = () => {
   const { addLabel } = useFetchLabel();
 
   const LoginUserInfoStateValue = useRecoilValue(LoginUserInfoState);
@@ -37,7 +37,7 @@ const LabelList = () => {
   };
 
   return (
-    <S.LabelList>
+    <S.Labels>
       <Header user={LoginUserInfoStateValue} />
       <S.SubNav>
         <NavLink navData={labelMilestone} navLinkStyle="LINE" />
@@ -68,7 +68,7 @@ const LabelList = () => {
       </S.SubNav>
       {labelState.type === 'ADD' && <LabelEditForm type="ADD" onClickCompleteButton={handleCompleteButtonClick} />}
       <FallbackLabelTable />
-    </S.LabelList>
+    </S.Labels>
   );
 };
-export default LabelList;
+export default Labels;

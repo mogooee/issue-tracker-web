@@ -7,7 +7,7 @@ import { act } from 'react-dom/test-utils';
 import userEvent from '@testing-library/user-event';
 
 import { composeStories } from '@storybook/testing-react';
-import * as SampleLabelList from '@/pages/Private/LabelList/LabelList.stories';
+import * as SampleLabelList from '@/pages/Private/Labels/Labels.stories';
 import { render } from '@/test/utils';
 
 const { Initial } = composeStories(SampleLabelList);

@@ -2,7 +2,7 @@ import Button from '@/components/Atoms/Button';
 import Label from '@/components/Atoms/Label';
 import * as S from '@/components/Organisms/LabelTable/LabelItem/index.styled';
 import { COLORS } from '@/styles/theme';
-import { LabelState } from '@/stores/labelList';
+import { LabelState } from '@/stores/label';
 import { LabelTypes } from '@/types/issue';
 import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
