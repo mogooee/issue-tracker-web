@@ -30,12 +30,12 @@ export interface MilestoneListTypes {
 const MILESTONE_STATE_TAB = (data: MilestoneListTypes) => [
   {
     icon: <Icon icon="Milestone" fill={COLORS.TITLE_ACTIVE} stroke={COLORS.OFF_WHITE} />,
-    link: '/milestone?state=open',
+    link: '/milestones?state=open',
     title: `열린 마일스톤(${data.openedMilestones.length})`,
   },
   {
     icon: <Icon icon="Archive" stroke={COLORS.TITLE_ACTIVE} />,
-    link: '/milestone?state=closed',
+    link: '/milestones?state=closed',
     title: `닫힌 마일스톤(${data.closedMilestones.length})`,
   },
 ];

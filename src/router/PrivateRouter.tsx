@@ -7,8 +7,7 @@ const PrivateRouter = () => (
       <Route index element={<Issues />} />
       <Route path="/issues" element={<Issues />} />
       <Route path="/issues/new" element={<NewIssue />} />
-      <Route path="/label" element={<LabelList />} />
-      <Route path="/milestone" element={<Milestones />} />
+      <Route path="/milestones" element={<Milestones />} />
     </Route>
     <Route path="*" element={<NotFound />} />
   </Routes>
