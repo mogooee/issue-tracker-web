@@ -58,5 +58,9 @@ export const PanelItem = styled.li`
       margin-top: 4px;
       content: url(${checkOffCircle});
     }
+
+    img {
+      margin-right: 8px;
+    }
   }
 `;

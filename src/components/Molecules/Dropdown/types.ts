@@ -43,11 +43,6 @@ export interface ColorLabelTypes {
   backgroundColor: string;
 }
 
-export interface UserImgLabelTypes {
-  profileImage: string;
-  loginId: string;
-}
-
 // ReactionPanel Types
 
 export interface ReactionPanelTypes {
