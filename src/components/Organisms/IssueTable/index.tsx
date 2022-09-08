@@ -12,7 +12,7 @@ import * as S from '@/components/Organisms/IssueTable/index.styles';
 import { DropdownTypes, ListPanelTypes } from '@/components/Molecules/Dropdown/types';
 import { OPEN_CLOSE_DROPDOWN_ARGS } from '@/components/Molecules/Dropdown/mock';
 import Table from '@/components/Molecules/Table';
-import { openCloseIssue } from '@/components/Molecules/NavLink/option';
+import { openCloseIssue } from '@/components/Molecules/NavLink/options';
 import { ContentTypes, IssuesTypes } from '@/api/issue/types';
 
 type IssueStateType = 'ALL' | 'OPEN' | 'CLOSED';

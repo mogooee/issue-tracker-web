@@ -4,12 +4,12 @@ import { COLORS } from '@/styles/theme';
 export const labelMilestone = [
   {
     icon: <Icon icon="Tag" stroke={COLORS.TITLE_ACTIVE} />,
-    link: '/label',
+    link: '/labels',
     title: '레이블',
   },
   {
     icon: <Icon fill={COLORS.TITLE_ACTIVE} icon="Milestone" />,
-    link: '/milestone',
+    link: '/milestones',
     title: '마일스톤',
   },
 ];

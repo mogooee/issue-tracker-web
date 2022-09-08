@@ -11,7 +11,7 @@ import Header from '@/components/Organisms/Header';
 import { FallbackLabelTable } from '@/components/Organisms/LabelTable';
 
 import { LoginUserInfoState } from '@/stores/loginUserInfo';
-import { labelMilestone } from '@/components/Molecules/NavLink/option';
+import { labelMilestone } from '@/components/Molecules/NavLink/options';
 import { LabelState } from '@/stores/label';
 
 const Labels = () => {

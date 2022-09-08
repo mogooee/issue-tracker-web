@@ -11,6 +11,7 @@ import { StyledNavLink } from '@/components/Molecules/NavLink/index.styles';
 
 import { BUTTON_PROPS, NAV_DATA } from '@/pages/Private/Milestones/constants';
 import { FallBackMilestoneTable } from '@/components/Organisms/MilestoneTable';
+import { labelMilestone } from '@/components/Molecules/NavLink/options';
 
 const NavContainer = styled.div`
   ${({ theme }) => theme.MIXIN.FLEX({ align: 'center', justify: 'space-between' })};
@@ -39,7 +40,7 @@ const Milestones = () => {
     <div>
       <Header user={LoginUserInfoStateValue} />
       <NavContainer>
-        <NavLink navData={NAV_DATA} navLinkStyle="LINE" />
+        <NavLink navData={labelMilestone} navLinkStyle="LINE" />
         <Button {...(!isOpenAddEdit ? BUTTON_PROPS.ADD : BUTTON_PROPS.CLOSE)} handleOnClick={openAddEdit} />
       </NavContainer>
       {isOpenAddEdit && <MilestoneEditForm editMode="ADD" setOpenState={setIsOpenAddEdit} />}
