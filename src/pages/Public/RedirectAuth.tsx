@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import { useQuery } from '@tanstack/react-query';
-import { getAuthMemberData, RedirectAuthTypes } from '@/api/redirectAuth';
+import { getRedirectAuthData, RedirectAuthTypes } from '@/api/sign';
 import useLogin from '@/hooks/useLogin';
 
 const RedirectAuth = () => {
@@ -13,7 +13,7 @@ const RedirectAuth = () => {
   const provider = searchParams.get('provider')!;
   const code = searchParams.get('code')!;
 
-  const { data } = useQuery<RedirectAuthTypes>(['auth'], () => getAuthMemberData(provider, code));
+  const { data } = useQuery<RedirectAuthTypes>(['auth'], () => getRedirectAuthData(provider, code));
 
   useEffect(() => {
     if (!data) return;

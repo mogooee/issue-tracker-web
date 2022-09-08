@@ -1,9 +1,10 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { rest } from 'msw';
-import { RedirectAuthTypes, SignInMemberTypes } from '@/api/redirectAuth';
+import { RedirectAuthTypes } from '@/api/sign';
 import { USER_LIST } from '@/components/Molecules/Dropdown/mock';
+import { UserTypes } from '@/types/issue';
 
-const userTable: SignInMemberTypes[] = [
+const userTable: UserTypes[] = [
   {
     id: 123456789,
     email: 'dobby@gmail.com',

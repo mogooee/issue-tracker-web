@@ -6,11 +6,10 @@ import * as S from '@/components/Organisms/Header/index.styles';
 import Icon from '@/components/Atoms/Icon';
 import Logo from '@/components/Atoms/Logo';
 import UserImage from '@/components/Atoms/UserImage';
-
-import { MemeberResponseTypes } from '@/api/signUp';
+import { UserTypes } from '@/types/issue';
 
 interface HeaderTypes {
-  user: MemeberResponseTypes;
+  user: UserTypes;
 }
 
 const Header = ({ user }: HeaderTypes) => {

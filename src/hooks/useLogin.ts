@@ -1,15 +1,16 @@
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { LoginUserInfoState } from '@/stores/loginUserInfo';
-import { getUserInfo, silentRefresh } from '@/api/login_logout';
-import { MemeberResponseTypes } from '@/api/signUp';
-import OAuthState from '@/stores/auth';
+
 import useOnceQuery from '@/hooks/useOnceQuery';
+import OAuthState from '@/stores/auth';
+import { getUserInfo, silentRefresh } from '@/api/sign';
+import { UserTypes } from '@/types/issue';
 
 const useLogin = () => {
   const [loginUserInfo, setLoginUserInfo] = useRecoilState(LoginUserInfoState);
   const setIsOAuth = useSetRecoilState(OAuthState);
 
-  const saveAuthLoginState = (userInfo: MemeberResponseTypes) => setLoginUserInfo(userInfo);
+  const saveAuthLoginState = (userInfo: UserTypes) => setLoginUserInfo(userInfo);
 
   const setSuccessLoginState = () => {
     setIsOAuth(true);

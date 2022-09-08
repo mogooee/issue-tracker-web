@@ -2,8 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { useSignUpFormError, SignUpFormState } from '@/stores/signUp';
 
-import { postSignUpData, OAuthNewMemberTypes, OAuthResponse } from '@/api/signUp';
-import { SignUpFormDataTypes } from '@/api/redirectAuth';
+import { signup, OAuthNewMemberTypes, OAuthResponse, SignUpFormDataTypes } from '@/api/sign';
 
 import * as S from '@/components/Organisms/OauthSignUpForm/index.styles';
 import Button from '@/components/Atoms/Button';
@@ -49,7 +48,7 @@ const OAuthSignUpForm = ({ SignUpFormData }: { SignUpFormData: SignUpFormDataTyp
   };
 
   const signUp = async () => {
-    const { memberResponse } = (await postSignUpData({ formData, type: 'auth' })) as OAuthResponse;
+    const { memberResponse } = (await signup({ formData, type: 'auth' })) as OAuthResponse;
     saveAuthLoginState(memberResponse);
     navigate('/issues');
   };
