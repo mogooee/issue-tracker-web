@@ -4,7 +4,7 @@ import * as S from '@/components/Molecules/MilestoneEditForm/index.styles';
 import Button from '@/components/Atoms/Button';
 import EditInput from '@/components/Molecules/MilestoneEditForm/EditInput';
 import { EDIT_FORM_INFO } from '@/components/Molecules/MilestoneEditForm/constants';
-import { BUTTON_PROPS } from '@/pages/Private/Milestones/constants';
+import { BUTTON_PROPS } from '@/components/Atoms/Button/options';
 
 import useFetchMilestone from '@/hooks/useFetchMilestone';
 import { RequestMilestoneTypes } from '@/api/milestone';

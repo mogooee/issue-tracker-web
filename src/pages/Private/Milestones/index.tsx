@@ -9,7 +9,7 @@ import NavLink from '@/components/Molecules/NavLink';
 import Header from '@/components/Organisms/Header';
 import { StyledNavLink } from '@/components/Molecules/NavLink/index.styles';
 
-import { BUTTON_PROPS, NAV_DATA } from '@/pages/Private/Milestones/constants';
+import { BUTTON_PROPS } from '@/components/Atoms/Button/options';
 import { FallBackMilestoneTable } from '@/components/Organisms/MilestoneTable';
 import { labelMilestone } from '@/components/Molecules/NavLink/options';
 

@@ -13,6 +13,7 @@ import { FallbackLabelTable } from '@/components/Organisms/LabelTable';
 import { LoginUserInfoState } from '@/stores/loginUserInfo';
 import { labelMilestone } from '@/components/Molecules/NavLink/options';
 import { LabelState } from '@/stores/label';
+import { BUTTON_PROPS } from '@/components/Atoms/Button/options';
 
 const Labels = () => {
   const { addLabel } = useFetchLabel();
@@ -42,28 +43,9 @@ const Labels = () => {
       <S.SubNav>
         <NavLink navData={labelMilestone} navLinkStyle="LINE" />
         {labelState.type === 'ADD' ? (
-          <Button
-            buttonStyle="SECONDARY"
-            iconInfo={{
-              icon: 'XSquare',
-              stroke: COLORS.LABEL,
-            }}
-            label="닫기"
-            size="SMALL"
-            handleOnClick={handleCloseButtonClick}
-          />
+          <Button {...BUTTON_PROPS.CLOSE} handleOnClick={handleCloseButtonClick} />
         ) : (
-          <Button
-            buttonStyle="STANDARD"
-            iconInfo={{
-              icon: 'Plus',
-              fill: COLORS.OFF_WHITE,
-              stroke: COLORS.OFF_WHITE,
-            }}
-            label="추가"
-            size="SMALL"
-            handleOnClick={handleAddButtonClick}
-          />
+          <Button {...BUTTON_PROPS.ADD} handleOnClick={handleAddButtonClick} />
         )}
       </S.SubNav>
       {labelState.type === 'ADD' && <LabelEditForm type="ADD" onClickCompleteButton={handleCompleteButtonClick} />}

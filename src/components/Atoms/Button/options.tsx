@@ -1,4 +1,3 @@
-import Icon from '@/components/Atoms/Icon';
 import { ButtonTypes } from '@/components/Atoms/Button';
 import { COLORS } from '@/styles/theme';
 
@@ -45,15 +44,29 @@ export const BUTTON_PROPS: BUTTON_PROPS_TYPES = {
   },
 };
 
-export const NAV_DATA = [
-  {
-    icon: <Icon icon="Tag" stroke={COLORS.TITLE_ACTIVE} />,
-    link: '/label',
-    title: '레이블',
+export const TABLE_ITEM_BUTTON_INFO: BUTTON_PROPS_TYPES = {
+  MILESTONE_OPEN: {
+    buttonStyle: 'NO_BORDER',
+    iconInfo: { icon: 'Milestone', fill: COLORS.TITLE_ACTIVE },
+    label: '열기',
+    size: 'SMALL',
   },
-  {
-    icon: <Icon icon="Milestone" fill={COLORS.TITLE_ACTIVE} />,
-    link: '/milestone',
-    title: '마일스톤',
+  CLOSE: {
+    buttonStyle: 'NO_BORDER',
+    iconInfo: { icon: 'Archive' },
+    label: '닫기',
+    size: 'SMALL',
   },
-];
+  MODIFY: {
+    buttonStyle: 'NO_BORDER',
+    iconInfo: { icon: 'Edit' },
+    label: '편집',
+    size: 'SMALL',
+  },
+  DELETE: {
+    buttonStyle: 'NO_BORDER',
+    iconInfo: { icon: 'Trash', stroke: COLORS.ERROR.RED },
+    label: '삭제',
+    size: 'SMALL',
+  },
+};

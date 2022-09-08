@@ -15,6 +15,7 @@ import { LabelState } from '@/stores/label';
 import useInput from '@/hooks/useInput';
 import debounce from '@/utils/debounce';
 import * as S from '@/components/Molecules/LabelEditForm/index.styled';
+import { BUTTON_PROPS } from '@/components/Atoms/Button/options';
 
 interface LabelAddFormTypes {
   type: 'ADD' | 'EDIT';
@@ -100,30 +101,8 @@ const LabelEditForm = ({ type, onClickCancleButton, onClickCompleteButton }: Lab
         </S.EditForm>
       </S.EditField>
       <S.EditButton>
-        {type === 'EDIT' && (
-          <Button
-            buttonStyle="SECONDARY"
-            iconInfo={{
-              icon: 'XSquare',
-              stroke: COLORS.LABEL,
-            }}
-            label="취소"
-            size="SMALL"
-            handleOnClick={onClickCancleButton}
-          />
-        )}
-        <Button
-          buttonStyle="STANDARD"
-          iconInfo={{
-            icon: type === 'EDIT' ? 'Edit' : 'Plus',
-            fill: type === 'EDIT' ? 'none' : COLORS.OFF_WHITE,
-            stroke: COLORS.OFF_WHITE,
-          }}
-          label="완료"
-          size="SMALL"
-          handleOnClick={onClickCompleteButton}
-          disabled={!isCompleteButtonActivated}
-        />
+        {type === 'EDIT' && <Button {...BUTTON_PROPS.CLOSE} />}
+        <Button {...BUTTON_PROPS.SAVE} handleOnClick={onClickCompleteButton} disabled={!isCompleteButtonActivated} />
       </S.EditButton>
     </S.LabelEditForm>
   );

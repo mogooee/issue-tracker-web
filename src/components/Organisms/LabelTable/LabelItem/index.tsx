@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import { ModalState } from '@/components/Modal';
 
+import { TABLE_ITEM_BUTTON_INFO } from '@/components/Atoms/Button/options';
+
 const LabelItem = ({ id, title, backgroundColorCode, description, textColor }: LabelTypes) => {
   const navigate = useNavigate();
   const setLabelState = useSetRecoilState(LabelState);
@@ -35,25 +37,10 @@ const LabelItem = ({ id, title, backgroundColorCode, description, textColor }: L
       <S.Description>{description}</S.Description>
       <S.EditButton>
         <Button
-          buttonStyle="NO_BORDER"
-          iconInfo={{
-            icon: 'Edit',
-            stroke: COLORS.LABEL,
-          }}
-          label="편집"
-          size="SMALL"
+          {...TABLE_ITEM_BUTTON_INFO.MODIFY}
           handleOnClick={() => handleEditButtonClick({ id, title, backgroundColorCode, description, textColor })}
         />
-        <Button
-          buttonStyle="NO_BORDER"
-          iconInfo={{
-            icon: 'Trash',
-            stroke: COLORS.ERROR.RED,
-          }}
-          label="삭제"
-          size="SMALL"
-          handleOnClick={() => handleDeleteButtonClick(id)}
-        />
+        <Button {...TABLE_ITEM_BUTTON_INFO.DELETE} handleOnClick={() => handleDeleteButtonClick(id)} />
       </S.EditButton>
     </S.LabelItem>
   );

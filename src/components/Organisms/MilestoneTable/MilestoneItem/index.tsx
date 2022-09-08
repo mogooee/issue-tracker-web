@@ -8,7 +8,7 @@ import Button from '@/components/Atoms/Button';
 import Icon from '@/components/Atoms/Icon';
 import PrograssBar from '@/components/Atoms/ProgressBar';
 import MilestoneEditForm from '@/components/Molecules/MilestoneEditForm';
-import { MILESTONE_BUTTON_INFO } from '@/components/Organisms/MilestoneTable/MilestoneItem/constants';
+import { TABLE_ITEM_BUTTON_INFO } from '@/components/Atoms/Button/options';
 import { COLORS } from '@/styles/theme';
 import useFetchMilestone from '@/hooks/useFetchMilestone';
 import { ClickMilestoneState } from '@/stores/milestone';
@@ -39,12 +39,12 @@ const MilestoneItem = (props: MilestoneTypes) => {
         <div>
           <S.MilestoneItemButtons isOpenModifyEditer={isOpenModifyEditer}>
             <Button
-              {...(closed ? MILESTONE_BUTTON_INFO.OPEN : MILESTONE_BUTTON_INFO.CLOSE)}
+              {...(closed ? TABLE_ITEM_BUTTON_INFO.MILESTONE_OPEN : TABLE_ITEM_BUTTON_INFO.CLOSE)}
               handleOnClick={() => patchMilestoneStateMutate(id)}
             />
-            <Button {...MILESTONE_BUTTON_INFO.MODIFY} handleOnClick={() => setIsOpenModifyEditer((state) => !state)} />
+            <Button {...TABLE_ITEM_BUTTON_INFO.MODIFY} handleOnClick={() => setIsOpenModifyEditer((state) => !state)} />
             <Button
-              {...MILESTONE_BUTTON_INFO.DELETE}
+              {...TABLE_ITEM_BUTTON_INFO.DELETE}
               handleOnClick={() => {
                 setClickMilestoneState(props);
                 setIsOpenModalState((state) => !state);
