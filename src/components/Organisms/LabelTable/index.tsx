@@ -11,7 +11,7 @@ import AddLabelField from '@/components/Molecules/AddLabelField';
 
 import { LabelState } from '@/stores/labelList';
 
-import useLabelFetch from '@/hooks/useLabelFetch';
+import useFetchLabel from '@/hooks/useFetchLabel';
 import Modal, { ModalState } from '@/components/Modal';
 import DeleteCheck from '@/components/Modal/DeleteCheck';
 import ErrorTable from '@/components/Organisms/ErrorTable';
@@ -19,7 +19,7 @@ import LabelTableSkeleton from '@/components/Skeleton/LabelTable';
 import LabelItem from '@/components/Organisms/LabelTable/LabelItem';
 
 const LabelTable = () => {
-  const { useGetLabel, replaceLabel } = useLabelFetch();
+  const { useGetLabel, replaceLabel } = useFetchLabel();
 
   const { data: labelContents } = useGetLabel();
 

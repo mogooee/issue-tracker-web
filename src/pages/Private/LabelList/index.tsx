@@ -1,5 +1,5 @@
 import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
-import useLabelFetch from '@/hooks/useLabelFetch';
+import useFetchLabel from '@/hooks/useFetchLabel';
 
 import * as S from '@/pages/Private/LabelList/index.styled';
 import { COLORS } from '@/styles/theme';
@@ -15,7 +15,7 @@ import { LabelState } from '@/stores/labelList';
 import { labelMilestone } from '@/components/Molecules/NavLink/option';
 
 const LabelList = () => {
-  const { addLabel } = useLabelFetch();
+  const { addLabel } = useFetchLabel();
 
   const LoginUserInfoStateValue = useRecoilValue(LoginUserInfoState);
   const [labelState, setLabelState] = useRecoilState(LabelState);
