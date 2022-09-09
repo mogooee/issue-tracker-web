@@ -62,12 +62,7 @@ const Issues = () => {
             ]}
             navLinkStyle="LINE"
           />
-          <Button
-            buttonStyle="STANDARD"
-            label="이슈작성"
-            size="SMALL"
-            iconInfo={{ icon: 'Plus', stroke: COLORS.OFF_WHITE }}
-          />
+          <Button {...NEW_ISSUE_BUTTON_INFO.WRITE} />
         </SubNav>
       </DivContainer>
       <IssueTable issues={issues!} filterTabs={FILTER_TABS} issueState={issueState} />

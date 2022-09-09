@@ -10,6 +10,7 @@ import TextAreaEditer from '@/components/Molecules/TextAreaEditer';
 import { DEFAULT_CONTENT_LIST, SIDEBAR_PROPS } from '@/components/Molecules/SideBar/mock';
 
 import useInput from '@/hooks/useInput';
+import { NEW_ISSUE_BUTTON_INFO } from '@/components/Atoms/Button/options';
 
 const NewIssue = () => {
   const LoginUserInfoStateValue = useRecoilValue(LoginUserInfoState);
@@ -39,8 +40,8 @@ const NewIssue = () => {
       </S.NewIssueEditer>
       <S.Divider />
       <S.NewIssueButtons>
-        <Button buttonStyle="NO_BORDER" iconInfo={{ icon: 'XSquare' }} label="작성 취소" size="SMALL" />
-        <Button buttonStyle="STANDARD" label="완료" size="MEDIUM" />
+        <Button {...NEW_ISSUE_BUTTON_INFO.CANCEL} />
+        <Button {...NEW_ISSUE_BUTTON_INFO.COMPLETE} />
       </S.NewIssueButtons>
     </S.NewIssue>
   );
