@@ -90,3 +90,21 @@ export const NEW_ISSUE_BUTTON_INFO: BUTTON_PROPS_TYPES = {
     size: 'MEDIUM',
   },
 };
+
+export const MODAL_BUTTON_INFO: BUTTON_PROPS_TYPES = {
+  YES: {
+    buttonStyle: 'STANDARD',
+    label: '확인',
+    size: 'SMALL',
+  },
+  NO: {
+    buttonStyle: 'STANDARD',
+    label: '취소',
+    size: 'SMALL',
+  },
+  TO_MAIN: {
+    buttonStyle: 'STANDARD',
+    label: '메인으로',
+    size: 'LARGE',
+  },
+};
