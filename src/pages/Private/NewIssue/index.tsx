@@ -13,6 +13,7 @@ import { DEFAULT_CONTENT_LIST, SIDEBAR_PROPS } from '@/components/Molecules/Side
 
 import useInput from '@/hooks/useInput';
 import { NEW_ISSUE_BUTTON_INFO } from '@/components/Atoms/Button/options';
+import { DEFAULT_TEXTAREA_MAX_LENGTH } from '@/components/Molecules/TextAreaEditer/constants';
 
 import Modal, { ModalState } from '@/components/Modal';
 import CancelNewIssueModal from '@/components/Modal/CancelNewIssue';
@@ -33,6 +34,18 @@ const NewIssue = () => {
     onChangeInput(event);
     setNewIssueFormState({ ...newIssueFormState, title: target.value });
   };
+
+  const updateCommentStateHandler = (event: React.FormEvent<HTMLTextAreaElement>) => {
+    const { value } = event.currentTarget;
+
+    if (!value) return setNewIssueFormState({ ...newIssueFormState, comment: '' });
+    if (Number(value) >= DEFAULT_TEXTAREA_MAX_LENGTH) {
+      // eslint-disable-next-line no-param-reassign
+      event.currentTarget.value = value.slice(0, DEFAULT_TEXTAREA_MAX_LENGTH);
+    }
+    return setNewIssueFormState({ ...newIssueFormState, comment: value });
+  };
+
   return (
     <>
       <S.NewIssue>
@@ -52,7 +65,7 @@ const NewIssue = () => {
               onClick={onClickInput}
               onBlur={onBlurInput}
             />
-            <TextAreaEditer />
+            <TextAreaEditer textAreaValue={newIssueFormState.comment} handleOnChange={updateCommentStateHandler} />
           </S.NewIssueForm>
           <SideBar content={DEFAULT_CONTENT_LIST} sideBarList={SIDEBAR_PROPS} />
         </S.NewIssueEditer>
