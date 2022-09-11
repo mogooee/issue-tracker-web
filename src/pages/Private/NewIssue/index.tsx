@@ -1,5 +1,7 @@
+import React from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { LoginUserInfoState } from '@/stores/loginUserInfo';
+import { NewIssueFormState } from '@/stores/newIssue';
 
 import * as S from '@/pages/Private/NewIssue/index.styles';
 import Button from '@/components/Atoms/Button';
@@ -17,11 +19,20 @@ import CancelNewIssueModal from '@/components/Modal/CancelNewIssue';
 
 const NewIssue = () => {
   const LoginUserInfoStateValue = useRecoilValue(LoginUserInfoState);
-  const { isActive, isTyping, onChangeInput, onClickInput, onBlurInput } = useInput();
   const [isOpenModal, setIsOpenModal] = useRecoilState(ModalState);
+  const [newIssueFormState, setNewIssueFormState] = useRecoilState(NewIssueFormState);
+
+  const { isActive, isTyping, onChangeInput, onClickInput, onBlurInput } = useInput();
 
   const OnClickCancelButton = () => setIsOpenModal(true);
 
+  const isDisabeldCreateIssueButton = () => newIssueFormState.title === '';
+
+  const updateTitleState = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { target } = event;
+    onChangeInput(event);
+    setNewIssueFormState({ ...newIssueFormState, title: target.value });
+  };
   return (
     <>
       <S.NewIssue>
@@ -37,7 +48,7 @@ const NewIssue = () => {
               inputType="text"
               isActive={isActive}
               isTyping={isTyping}
-              onChange={onChangeInput}
+              onChange={updateTitleState}
               onClick={onClickInput}
               onBlur={onBlurInput}
             />
@@ -48,7 +59,7 @@ const NewIssue = () => {
         <S.Divider />
         <S.NewIssueButtons>
           <Button {...NEW_ISSUE_BUTTON_INFO.CANCEL} handleOnClick={OnClickCancelButton} />
-          <Button {...NEW_ISSUE_BUTTON_INFO.COMPLETE} />
+          <Button {...NEW_ISSUE_BUTTON_INFO.COMPLETE} disabled={isDisabeldCreateIssueButton()} />
         </S.NewIssueButtons>
       </S.NewIssue>
       {isOpenModal && (
