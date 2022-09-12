@@ -11,21 +11,15 @@ import { LabelTypes, UserTypes, MilestoneTypes } from '@/api/issue/types';
 
 export const getFindDropdownItem = ({
   id,
-  panel,
-  sideBarList,
+  dropdownList,
 }: {
   id: string;
-  panel: string;
-  sideBarList: SideBarItemType[];
-}) => {
-  const sidebarItem = sideBarList.find((el) => el.id === panel);
-  const sidebarDropdownList: (UserTypes | LabelTypes | MilestoneTypes)[] = sidebarItem!.dropdownList;
-
-  return sidebarDropdownList.find((el) => {
+  dropdownList: (UserTypes | LabelTypes | MilestoneTypes)[];
+}) =>
+  dropdownList.find((el) => {
     if (isAssignTypes(el)) return el.nickname === id;
     if (isLabelTypes(el) || isMilestoneTypes(el)) return el.title === id;
   });
-};
 
 export const filterUncheckedItem = ({
   id,

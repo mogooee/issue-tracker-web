@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
+import React, { useState } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { LoginUserInfoState } from '@/stores/loginUserInfo';
 import { NewIssueFormState } from '@/stores/newIssue';
@@ -18,10 +19,14 @@ import { DEFAULT_TEXTAREA_MAX_LENGTH } from '@/components/Molecules/TextAreaEdit
 import Modal, { ModalState } from '@/components/Modal';
 import CancelNewIssueModal from '@/components/Modal/CancelNewIssue';
 
+import { filterUncheckedItem, getFindDropdownItem } from '@/components/Molecules/SideBar/utils';
+import { ContentListTypes, isMilestoneTypes, UpdateSideBarFuncTypes } from '@/components/Molecules/SideBar/types';
+
 const NewIssue = () => {
   const LoginUserInfoStateValue = useRecoilValue(LoginUserInfoState);
   const [isOpenModal, setIsOpenModal] = useRecoilState(ModalState);
   const [newIssueFormState, setNewIssueFormState] = useRecoilState(NewIssueFormState);
+  const [contentList, setContentList] = useState(DEFAULT_CONTENT_LIST);
 
   const { isActive, isTyping, onChangeInput, onClickInput, onBlurInput } = useInput();
 
@@ -46,6 +51,49 @@ const NewIssue = () => {
     return setNewIssueFormState({ ...newIssueFormState, comment: value });
   };
 
+  const updateSideBarItemState = ({ ...props }: UpdateSideBarFuncTypes) => {
+    const { id, panel, checked, dropdownList } = props;
+
+    // 드롭다운 리스트에서 체크한 아이템의 정보를 찾는다.
+    const findDropdownItem = getFindDropdownItem({ id: id!, dropdownList });
+
+    const contentKey = panel as keyof ContentListTypes;
+
+    // 마일스톤의 드롭다운 아이템 체크시
+    if (contentKey === 'milestone' && checked) {
+      if (id !== 'none' && isMilestoneTypes(findDropdownItem!)) {
+        // 하나의 요소만 들어갈 수 있도록 한다.
+        setContentList({ ...contentList, [contentKey]: [findDropdownItem] });
+        setNewIssueFormState({ ...newIssueFormState, milestoneId: findDropdownItem.id });
+        return;
+      }
+      // 마일스톤 없음을 체크하면 아무 값도 들어가지 않는다.
+      setContentList({ ...contentList, [contentKey]: [] });
+      setNewIssueFormState({ ...newIssueFormState, milestoneId: null });
+      return;
+    }
+
+    // 담당자, 레이블 드롭다운 아이템 체크시 findDropdownItem한 요소를 content 리스트에 추가한다.
+    if (contentKey !== 'milestone' && checked) {
+      setContentList({ ...contentList, [contentKey]: [...contentList[contentKey], findDropdownItem] });
+      setNewIssueFormState({
+        ...newIssueFormState,
+        [`${contentKey}Ids`]: [...newIssueFormState[`${contentKey}Ids`], findDropdownItem!.id],
+      });
+      return;
+    }
+
+    if (contentKey !== 'milestone' && !checked) {
+      // 드롭다운 리스트에서 체크 해제하면, content 리스트에서 해당하는 요소를 제외한다.
+      const filterContentList = filterUncheckedItem({ id: id!, contentKey, contentList });
+      setContentList({ ...contentList, [contentKey]: [...filterContentList] });
+      setNewIssueFormState({
+        ...newIssueFormState,
+        [`${contentKey}Ids`]: [...newIssueFormState[`${contentKey}Ids`], findDropdownItem!.id],
+      });
+    }
+  };
+
   return (
     <>
       <S.NewIssue>
@@ -67,7 +115,7 @@ const NewIssue = () => {
             />
             <TextAreaEditer textAreaValue={newIssueFormState.comment} handleOnChange={updateCommentStateHandler} />
           </S.NewIssueForm>
-          <SideBar content={DEFAULT_CONTENT_LIST} sideBarList={SIDEBAR_PROPS} />
+          <SideBar content={contentList} handleOnChange={updateSideBarItemState} />
         </S.NewIssueEditer>
         <S.Divider />
         <S.NewIssueButtons>
