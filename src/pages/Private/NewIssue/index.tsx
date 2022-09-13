@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
 import { LoginUserInfoState } from '@/stores/loginUserInfo';
 import { NewIssueFormState } from '@/stores/newIssue';
 
@@ -10,7 +10,7 @@ import Input from '@/components/Atoms/Input';
 import UserImage from '@/components/Atoms/UserImage';
 import SideBar from '@/components/Molecules/SideBar';
 import TextAreaEditer from '@/components/Molecules/TextAreaEditer';
-import { DEFAULT_CONTENT_LIST, SIDEBAR_PROPS } from '@/components/Molecules/SideBar/mock';
+import { DEFAULT_CONTENT_LIST } from '@/components/Molecules/SideBar/mock';
 
 import useInput from '@/hooks/useInput';
 import { NEW_ISSUE_BUTTON_INFO } from '@/components/Atoms/Button/options';
@@ -22,12 +22,16 @@ import CancelNewIssueModal from '@/components/Modal/CancelNewIssue';
 import { filterUncheckedItem, getFindDropdownItem } from '@/components/Molecules/SideBar/utils';
 import { ContentListTypes, isMilestoneTypes, UpdateSideBarFuncTypes } from '@/components/Molecules/SideBar/types';
 
+import useFetchIssue from '@/api/issue/useFetchIssue';
+
 const NewIssue = () => {
   const LoginUserInfoStateValue = useRecoilValue(LoginUserInfoState);
   const [isOpenModal, setIsOpenModal] = useRecoilState(ModalState);
   const [newIssueFormState, setNewIssueFormState] = useRecoilState(NewIssueFormState);
+
   const [contentList, setContentList] = useState(DEFAULT_CONTENT_LIST);
 
+  const { createNewIssueMutate } = useFetchIssue();
   const { isActive, isTyping, onChangeInput, onClickInput, onBlurInput } = useInput();
 
   const OnClickCancelButton = () => setIsOpenModal(true);
@@ -94,6 +98,13 @@ const NewIssue = () => {
     }
   };
 
+  const onClickCreateNewIssueButton = () => {
+    createNewIssueMutate({
+      newIssueFormData: newIssueFormState,
+      memberId: LoginUserInfoStateValue.id,
+    });
+  };
+
   return (
     <>
       <S.NewIssue>
@@ -120,7 +131,11 @@ const NewIssue = () => {
         <S.Divider />
         <S.NewIssueButtons>
           <Button {...NEW_ISSUE_BUTTON_INFO.CANCEL} handleOnClick={OnClickCancelButton} />
-          <Button {...NEW_ISSUE_BUTTON_INFO.COMPLETE} disabled={isDisabeldCreateIssueButton()} />
+          <Button
+            {...NEW_ISSUE_BUTTON_INFO.COMPLETE}
+            disabled={isDisabeldCreateIssueButton()}
+            handleOnClick={onClickCreateNewIssueButton}
+          />
         </S.NewIssueButtons>
       </S.NewIssue>
       {isOpenModal && (
