@@ -54,7 +54,7 @@ const SideBarItem = ({ ...props }: SideBarItemType & ContentItemTypes & handleOn
         }}
       />
 
-      <S.SideBarContent isEmpty={!content.length}>
+      <S.SideBarContent isEmpty={!content.length} className="content_list">
         {content.map((contentItem) => {
           if (isAssignTypes(contentItem)) {
             return (
