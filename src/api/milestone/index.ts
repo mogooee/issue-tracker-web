@@ -10,7 +10,7 @@ export type RequestMilestoneTypes = Pick<MilestoneTypes, 'title' | 'description'
 
 export const getMilestoneData = async () => {
   try {
-    const { data } = await axios.get<MilestoneListTypes>('api/milestones');
+    const { data } = await axios.get<MilestoneListTypes>('/server/api/milestones');
     return data;
   } catch (error) {
     const err = error as AxiosError;
@@ -20,7 +20,7 @@ export const getMilestoneData = async () => {
 
 export const createNewMilestone = async (milestoneData: RequestMilestoneTypes) => {
   try {
-    const { data } = await axios.post<MilestoneTypes>('api/milestones', milestoneData);
+    const { data } = await axios.post<MilestoneTypes>('/server/api/milestones', milestoneData);
     return data;
   } catch (error) {
     const err = error as AxiosError;
@@ -36,7 +36,7 @@ export const patchMilestoneData = async ({
   milestoneData: RequestMilestoneTypes;
 }) => {
   try {
-    const { data } = await axios.patch<MilestoneTypes>(`api/milestones/${id}`, milestoneData);
+    const { data } = await axios.patch<MilestoneTypes>(`/server/api/milestones/${id}`, milestoneData);
     return data;
   } catch (error) {
     const err = error as AxiosError;
@@ -46,7 +46,7 @@ export const patchMilestoneData = async ({
 
 export const patchMilestoneState = async (id: number) => {
   try {
-    const { data } = await axios.patch<MilestoneTypes>(`api/milestones/${id}/status`);
+    const { data } = await axios.patch<MilestoneTypes>(`/server/api/milestones/${id}/status`);
     return data;
   } catch (error) {
     const err = error as AxiosError;
@@ -56,7 +56,7 @@ export const patchMilestoneState = async (id: number) => {
 
 export const deleteMilestone = async (id: number) => {
   try {
-    const { data } = await axios.delete<MilestoneTypes>(`api/milestones/${id}`);
+    const { data } = await axios.delete<MilestoneTypes>(`/server/api/milestones/${id}`);
     return data;
   } catch (error) {
     const err = error as AxiosError;

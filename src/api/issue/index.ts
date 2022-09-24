@@ -19,7 +19,7 @@ export const getIssuesData = async (page: number, queryString: string): Promise<
         .join('+') || '';
 
     const { data: issuesData } = await axios.get<IssuesTypes>(
-      `api/issues?page=${page}&q=${encodeURIComponent(queries)}`,
+      `/server/api/issues?page=${page}&q=${encodeURIComponent(queries)}`,
     );
     return issuesData;
   } catch (error) {
@@ -30,7 +30,7 @@ export const getIssuesData = async (page: number, queryString: string): Promise<
 
 export const getIssueData = async (issueId: number): Promise<ContentTypes> => {
   try {
-    const { data: issueData } = await axios.get<ContentTypes>(`api/issues/${issueId}`);
+    const { data: issueData } = await axios.get<ContentTypes>(`/server/api/issues/${issueId}`);
     return issueData;
   } catch (error) {
     const err = error as AxiosError;
@@ -49,7 +49,7 @@ export const updateIssueTitle = async ({
 }: PatchIssueTitleReqTypes): Promise<ContentTypes> => {
   try {
     const { data: IssueChangedTitle } = await axios.patch<ContentTypes>(
-      `api/issues/${issueId}/title?memberId=${memberId}`,
+      `/server/api/issues/${issueId}/title?memberId=${memberId}`,
       newTitle,
     );
     return IssueChangedTitle;
@@ -68,7 +68,7 @@ type PatchIssueStateReqTypes = { newState: IssueStateReqTypes } & Pick<Idtypes, 
 
 export const updateIssueState = async ({ newState, memberId }: PatchIssueStateReqTypes) => {
   try {
-    const { data: issueData } = await axios.patch(`api/issues/update-status?memberId=${memberId}`, newState);
+    const { data: issueData } = await axios.patch(`/server/api/issues/update-status?memberId=${memberId}`, newState);
     return issueData;
   } catch (error) {
     const err = error as AxiosError;
@@ -83,7 +83,7 @@ type PostIssueCommentTypes = { newComment: CommentReqTypes } & Pick<Idtypes, 'is
 export const addComment = async ({ newComment, issueId, memberId }: PostIssueCommentTypes): Promise<ContentTypes> => {
   try {
     const { data: IssueChangedComment } = await axios.post<ContentTypes>(
-      `api/issues/${issueId}/comments?memberId=${memberId}`,
+      `/server/api/issues/${issueId}/comments?memberId=${memberId}`,
       newComment,
     );
     return IssueChangedComment;
@@ -103,7 +103,7 @@ export const updateComment = async ({
 }: PatchCommentTypes): Promise<ContentTypes> => {
   try {
     const { data: IssueChangedComment } = await axios.patch<ContentTypes>(
-      `api/issues/${issueId}/comments/${commentId}?memberId=${memberId}`,
+      `/server/api/issues/${issueId}/comments/${commentId}?memberId=${memberId}`,
       newContent,
     );
     return IssueChangedComment;
@@ -118,7 +118,7 @@ type DeleteCommentTypes = Omit<Idtypes, 'reactionId'>;
 export const deleteComment = async ({ issueId, commentId, memberId }: DeleteCommentTypes): Promise<ContentTypes> => {
   try {
     const { data: IssueChangedComment } = await axios.delete<ContentTypes>(
-      `api/issues/${issueId}/comments/${commentId}?memberId=${memberId}`,
+      `/server/api/issues/${issueId}/comments/${commentId}?memberId=${memberId}`,
     );
     return IssueChangedComment;
   } catch (error) {
@@ -137,7 +137,7 @@ export const addCommentReaction = async ({
 }: PostCommentReactionTypes): Promise<ContentTypes> => {
   try {
     const { data: IssueChangedCommentReaction } = await axios.post<ContentTypes>(
-      `api/issues/${issueId}/comments/${commentId}/reactions/${emojiName}?memberId=${memberId}`,
+      `/server/api/issues/${issueId}/comments/${commentId}/reactions/${emojiName}?memberId=${memberId}`,
     );
     return IssueChangedCommentReaction;
   } catch (error) {
@@ -154,7 +154,7 @@ export const deleteCommentReaction = async ({
 }: Idtypes): Promise<ContentTypes> => {
   try {
     const { data: IssueChangedCommentReaction } = await axios.delete<ContentTypes>(
-      `api/issues/${issueId}/comments/${commentId}/reactions/${reactionId}?memberId=${memberId}`,
+      `/server/api/issues/${issueId}/comments/${commentId}/reactions/${reactionId}?memberId=${memberId}`,
     );
     return IssueChangedCommentReaction;
   } catch (error) {
@@ -170,7 +170,7 @@ interface CreateNewIssueTypes {
 
 export const createNewIssue = async ({ newIssueFormData, memberId }: CreateNewIssueTypes): Promise<ContentTypes> => {
   try {
-    const { data } = await axios.post<ContentTypes>(`api/issues?memberId=${memberId}`, newIssueFormData);
+    const { data } = await axios.post<ContentTypes>(`/server/api/issues?memberId=${memberId}`, newIssueFormData);
     return data;
   } catch (error) {
     const err = error as AxiosError;

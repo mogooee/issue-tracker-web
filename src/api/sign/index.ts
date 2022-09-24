@@ -50,7 +50,7 @@ export interface RedirectAuthTypes {
 // 로그인 유지 관련
 export const silentRefresh = async () => {
   try {
-    const { data } = await axios.get('api/auth/reissue');
+    const { data } = await axios.get('/server/api/auth/reissue');
     const { accessToken } = data;
     axios.defaults.headers.common.Authorization = `Bearer ${accessToken.token}`;
     return data;
@@ -62,7 +62,7 @@ export const silentRefresh = async () => {
 
 export const getUserInfo = async () => {
   try {
-    const { data } = await axios.get('api/members/info');
+    const { data } = await axios.get('/server/api/members/info');
     return data;
   } catch (error) {
     const err = error as AxiosError;
@@ -73,7 +73,7 @@ export const getUserInfo = async () => {
 // 로그인 로그아웃 관련
 export const signin = async (formData: SigninTypes) => {
   try {
-    const { data } = await axios.post<OAuthResponse>('api/members/signin', formData);
+    const { data } = await axios.post<OAuthResponse>('/server/api/members/signin', formData);
     return data;
   } catch (error) {
     const err = error as AxiosError<ErrorMessage>;
@@ -83,7 +83,7 @@ export const signin = async (formData: SigninTypes) => {
 
 export const signout = async () => {
   try {
-    await axios.head('api/members/signout');
+    await axios.head('/server/api/members/signout');
     axios.defaults.headers.common.Authorization = '';
     localStorage.removeItem('Authentication');
   } catch (error) {
@@ -95,7 +95,7 @@ export const signout = async () => {
 // 회원가입 관련
 export const getRedirectAuthData = async (provider: string, code: string): Promise<RedirectAuthTypes> => {
   try {
-    const { data } = await axios.get<RedirectAuthTypes>(`api/auth/${provider}?code=${code}`);
+    const { data } = await axios.get<RedirectAuthTypes>(`/server/api/auth/${provider}?code=${code}`);
 
     if (data.accessToken) {
       axios.defaults.headers.common.Authorization = `Bearer ${data.accessToken.token}`;
@@ -116,7 +116,7 @@ export const signup = async ({
   type: 'general' | 'auth';
 }) => {
   try {
-    const { data } = await axios.post<OAuthResponse | UserTypes>(`api/members/new/${type}`, formData);
+    const { data } = await axios.post<OAuthResponse | UserTypes>(`/server/api/members/new/${type}`, formData);
     if (type === 'auth') {
       const { accessToken } = data as OAuthResponse;
       axios.defaults.headers.common.Authorization = `Bearer ${accessToken?.token}`;

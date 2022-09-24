@@ -4,9 +4,9 @@ import axios from 'axios';
 import App from './App';
 import { worker } from './mocks/worker';
 
-if (process.env.NODE_ENV === 'development') {
-  worker.start();
-}
+// if (process.env.NODE_ENV === 'development') {
+//   worker.start();
+// }
 
 axios.defaults.withCredentials = true;
 

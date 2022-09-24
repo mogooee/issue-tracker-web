@@ -3,7 +3,7 @@ import axios, { AxiosError } from 'axios';
 
 export const getMemberList = async () => {
   try {
-    const { data } = await axios.get<UserTypes[]>('api/members');
+    const { data } = await axios.get<UserTypes[]>('/server/api/members');
     return data;
   } catch (error) {
     const err = error as AxiosError;
@@ -13,7 +13,7 @@ export const getMemberList = async () => {
 
 export const getDuplicatesResult = async (router: string, value: string) => {
   try {
-    const { data } = await axios.get(`api/members/${router}/${value}/exists`);
+    const { data } = await axios.get(`/server/api/members/${router}/${value}/exists`);
     return data;
   } catch (error) {
     const err = error as AxiosError;
