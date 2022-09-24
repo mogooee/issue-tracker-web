@@ -17,7 +17,9 @@ export interface ReactionTypes {
 
 export const getReactionData = async (): Promise<ReactionTypes[]> => {
   try {
-    const { data } = await axios.get<ReactionTypes[]>('/server/api/issues/comments/reactions/emojis');
+    const { data } = await axios.get<ReactionTypes[]>(
+      `${process.env.REACT_APP_PUBLIC_URL}api/issues/comments/reactions/emojis`,
+    );
     return data;
   } catch (error) {
     const err = error as AxiosError;

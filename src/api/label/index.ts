@@ -3,7 +3,7 @@ import axios, { AxiosError } from 'axios';
 
 export const getLabelData = async (): Promise<LabelTypes[]> => {
   try {
-    const { data } = await axios.get<LabelTypes[]>('/server/api/labels');
+    const { data } = await axios.get<LabelTypes[]>(`${process.env.REACT_APP_PUBLIC_URL}api/labels`);
     return data;
   } catch (error) {
     const err = error as AxiosError;
@@ -13,7 +13,7 @@ export const getLabelData = async (): Promise<LabelTypes[]> => {
 
 export const addLabelData = async (newLabel: LabelTypes): Promise<LabelTypes> => {
   try {
-    const { data } = await axios.post<LabelTypes>('/server/api/labels', newLabel);
+    const { data } = await axios.post<LabelTypes>(`${process.env.REACT_APP_PUBLIC_URL}api/labels`, newLabel);
     return data;
   } catch (error) {
     const err = error as AxiosError;
@@ -30,7 +30,10 @@ type ResponseReplaceLabel = ReplaceLabelTypes & { id: number };
 
 export const patchLabelData = async ({ id, replacedLabel }: ReplaceLabelTypes): Promise<ResponseReplaceLabel> => {
   try {
-    const { data } = await axios.patch<ResponseReplaceLabel>(`/server/api/labels/${id}`, replacedLabel);
+    const { data } = await axios.patch<ResponseReplaceLabel>(
+      `${process.env.REACT_APP_PUBLIC_URL}api/labels/${id}`,
+      replacedLabel,
+    );
     return data;
   } catch (error) {
     const err = error as AxiosError;
@@ -40,7 +43,7 @@ export const patchLabelData = async ({ id, replacedLabel }: ReplaceLabelTypes): 
 
 export const deleteLabelData = async (id: number): Promise<{ message: string }> => {
   try {
-    const { data } = await axios.delete<{ message: string }>(`/server/api/labels/${id}`);
+    const { data } = await axios.delete<{ message: string }>(`${process.env.REACT_APP_PUBLIC_URL}api/labels/${id}`);
     return data;
   } catch (error) {
     const err = error as AxiosError;
